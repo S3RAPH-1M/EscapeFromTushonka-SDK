@@ -264,6 +264,16 @@ namespace AssetBundleBrowser
                         m_CompressionValues);
 
                     m_UserData.m_Compression = cmp;
+
+                    bool verboseLogs = AssetBundleBrowserMain.VerboseLogs;
+                    bool newVerbose = EditorGUILayout.ToggleLeft(
+                        new GUIContent("Verbose Logs", "Print per-bundle step timing logs and dictionary-load logs to the Console during builds."),
+                        verboseLogs);
+                    if (newVerbose != verboseLogs)
+                    {
+                        AssetBundleBrowserMain.VerboseLogs = newVerbose;
+                    }
+
                     foreach (ToggleData tog in m_ToggleData)
                     {
                         newState = EditorGUILayout.ToggleLeft(

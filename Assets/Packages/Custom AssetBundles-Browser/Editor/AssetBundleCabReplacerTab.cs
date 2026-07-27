@@ -205,7 +205,8 @@ namespace AssetBundleBrowser.Custom
                 }
 
                 cabDictionaryData.OnAfterDeserialize();
-                Debug.Log($"[CAB dict] loaded {cabDictionaryData.Lookup.Count} mappings from cab_data.json (first key: {(cabDictionaryData.sdk.Count > 0 ? cabDictionaryData.sdk[0] : "none")})");
+                if (AssetBundleBrowserMain.VerboseLogs)
+                    Debug.Log($"[CAB dict] loaded {cabDictionaryData.Lookup.Count} mappings from cab_data.json (first key: {(cabDictionaryData.sdk.Count > 0 ? cabDictionaryData.sdk[0] : "none")})");
                 return cabDictionaryData;
             }
             catch (Exception ex)

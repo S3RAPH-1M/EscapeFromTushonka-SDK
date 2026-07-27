@@ -25,6 +25,13 @@ namespace AssetBundleBrowser
 
         internal const float kButtonWidth = 150;
 
+        private const string k_VerboseLogsPrefKey = "AssetBundleBrowser.VerboseLogs";
+        internal static bool VerboseLogs
+        {
+            get => EditorPrefs.GetBool(k_VerboseLogsPrefKey, true);
+            set => EditorPrefs.SetBool(k_VerboseLogsPrefKey, value);
+        }
+
         enum Mode
         {
             Browser,

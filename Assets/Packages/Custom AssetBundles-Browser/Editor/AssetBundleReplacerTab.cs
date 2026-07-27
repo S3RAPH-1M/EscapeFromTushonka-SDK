@@ -215,7 +215,8 @@ namespace AssetBundleBrowser.Custom
 	            }
 
 	            dictionaryData.OnAfterDeserialize();
-	            Debug.Log($"[PathID dict] loaded {dictionaryData.Lookup.Count} mappings from path_data.json (first key: {(dictionaryData.sdk.Count > 0 ? dictionaryData.sdk[0].ToString() : "none")})");
+	            if (AssetBundleBrowserMain.VerboseLogs)
+	                Debug.Log($"[PathID dict] loaded {dictionaryData.Lookup.Count} mappings from path_data.json (first key: {(dictionaryData.sdk.Count > 0 ? dictionaryData.sdk[0].ToString() : "none")})");
 	            return dictionaryData;
             }
             catch (Exception ex)
@@ -275,7 +276,8 @@ namespace AssetBundleBrowser.Custom
                     assetsManager.UnloadAll();
                     Mark("unload");
                     total.Stop();
-                    Debug.Log($"[{bundleLabel}] KEPT unity build (no work) | in={FormatSize(inputSize)} | total={total.ElapsedMilliseconds}ms | {string.Join(" ", stepLog)}");
+                    if (AssetBundleBrowserMain.VerboseLogs)
+                        Debug.Log($"[{bundleLabel}] KEPT unity build (no work) | in={FormatSize(inputSize)} | total={total.ElapsedMilliseconds}ms | {string.Join(" ", stepLog)}");
                     return;
                 }
 
@@ -299,7 +301,8 @@ namespace AssetBundleBrowser.Custom
                 if (pathIdChanges + cabChanges == 0)
                 {
                     total.Stop();
-                    Debug.Log($"[{bundleLabel}] KEPT unity build (no matches) | in={FormatSize(inputSize)} | total={total.ElapsedMilliseconds}ms | {string.Join(" ", stepLog)}");
+                    if (AssetBundleBrowserMain.VerboseLogs)
+                        Debug.Log($"[{bundleLabel}] KEPT unity build (no matches) | in={FormatSize(inputSize)} | total={total.ElapsedMilliseconds}ms | {string.Join(" ", stepLog)}");
                     return;
                 }
 
@@ -329,7 +332,8 @@ namespace AssetBundleBrowser.Custom
                 Mark("finalize");
 
                 total.Stop();
-                Debug.Log($"[{bundleLabel}] REWROTE | pathIDs={pathIdChanges} CABs={cabChanges} pack={compression} | in={FormatSize(inputSize)} out={FormatSize(outputSize)} | total={total.ElapsedMilliseconds}ms | {string.Join(" ", stepLog)}");
+                if (AssetBundleBrowserMain.VerboseLogs)
+                    Debug.Log($"[{bundleLabel}] REWROTE | pathIDs={pathIdChanges} CABs={cabChanges} pack={compression} | in={FormatSize(inputSize)} out={FormatSize(outputSize)} | total={total.ElapsedMilliseconds}ms | {string.Join(" ", stepLog)}");
             }
             catch (Exception e)
             {

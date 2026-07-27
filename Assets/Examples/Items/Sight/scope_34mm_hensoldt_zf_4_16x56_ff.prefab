@@ -123,7 +123,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1336715733210102}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd248f335b7d13d41913623b35e28ab3, type: 3}
+  m_Script: {fileID: 922435528, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LensRenderer: {fileID: 23165620911742254}
@@ -304,7 +304,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1668537454171517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e88583c408674d4bad1d52c226ee09a, type: 3}
+  m_Script: {fileID: 66076693, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pivotPosition: {x: 0.004082851, y: 0.012620589, z: 0.009148851}
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1668537454171517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21e69c8a5f87ea841b01ba1b7c0b94d2, type: 3}
+  m_Script: {fileID: 535656609, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CanChangeAngleByDistance: 0
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1668537454171517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97947b8623f340c439031879940da310, type: 3}
+  m_Script: {fileID: -133078897, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ScopeSwitcher: {fileID: 4262884579711253}
@@ -365,7 +365,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1668537454171517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a87d5884862b90349a54f5493ece732d, type: 3}
+  m_Script: {fileID: 1093889932, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MinMaxFieldOfView: {x: 6, y: 1.2, z: 4}
@@ -560,7 +560,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1838997042078148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0beeb7eea54e44149b5bc7554b6a430e, type: 3}
+  m_Script: {fileID: 300415929, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Reticle: {fileID: 4106991047187249124}
@@ -576,7 +576,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1838997042078148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e5a4f829302b924b8852a834a943464, type: 3}
+  m_Script: {fileID: -1087567788, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ChromaticAberration: 1
@@ -605,7 +605,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1838997042078148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05272903d3e177c41a950331870a8c4d, type: 3}
+  m_Script: {fileID: 1786061888, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Mesh: {fileID: 4300000, guid: c14a2a9bcb4908345b5270fdbe740108, type: 2}

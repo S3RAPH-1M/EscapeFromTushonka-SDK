@@ -45,7 +45,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1407711766587690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a07d50b90e089af4f8c45be448945544, type: 3}
+  m_Script: {fileID: 841663029, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   JetMaterial: {fileID: 2100000, guid: 3b903ba895c451a40ace06a0e6062f31, type: 2}
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1407711766587690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2af4eb639845004396b17d4335e2f3e, type: 3}
+  m_Script: {fileID: 2069444481, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AdditionalSounds:
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1407711766587690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e88583c408674d4bad1d52c226ee09a, type: 3}
+  m_Script: {fileID: 66076693, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pivotPosition: {x: 0.134, y: -0.0264, z: 0.454}
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1407711766587690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84316f692d4ce9148ac073968024cade, type: 3}
+  m_Script: {fileID: -668745058, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ShotSettings:
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1407711766587690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7cbe43188f5ce84fad95c37e1fb38d1, type: 3}
+  m_Script: {fileID: -2055878143, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PoolHistory: []

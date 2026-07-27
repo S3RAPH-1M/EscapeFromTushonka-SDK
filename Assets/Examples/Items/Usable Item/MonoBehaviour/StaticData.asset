@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87cd7383f30b391498402bd11e45fff5, type: 3}
+  m_Script: {fileID: 553725301, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: StaticData
   m_EditorClassIdentifier:
   _stateHashToEventsCollection:

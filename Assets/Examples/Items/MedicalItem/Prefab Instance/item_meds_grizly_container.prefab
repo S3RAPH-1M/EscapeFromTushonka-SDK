@@ -121,7 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1749355369442044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1048d7a8975b1e5418a1b8e3161e8f9e, type: 3}
+  m_Script: {fileID: 2039114029, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PoolHistory: []
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1749355369442044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 527a414e2ef61f848a90eb09f249913c, type: 3}
+  m_Script: {fileID: -634999066, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AdditionalSounds:

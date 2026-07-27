@@ -121,7 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 669654740279983634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae07e37eb2301a24aa08f7ba77fcd71b, type: 3}
+  m_Script: {fileID: -10283014, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CollimatorMeshRenderer: {fileID: 0}
@@ -340,7 +340,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 669654740752708322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae07e37eb2301a24aa08f7ba77fcd71b, type: 3}
+  m_Script: {fileID: -10283014, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CollimatorMeshRenderer: {fileID: 669654740606330023}
@@ -479,7 +479,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 669654740929249156}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae07e37eb2301a24aa08f7ba77fcd71b, type: 3}
+  m_Script: {fileID: -10283014, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CollimatorMeshRenderer: {fileID: 0}
@@ -605,7 +605,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8513083486144807844}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e88583c408674d4bad1d52c226ee09a, type: 3}
+  m_Script: {fileID: 66076693, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pivotPosition: {x: -0.00026549958, y: 0.016846761, z: 0.0004925262}
@@ -629,7 +629,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8513083486144807844}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21e69c8a5f87ea841b01ba1b7c0b94d2, type: 3}
+  m_Script: {fileID: 535656609, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &3473322541175738884
@@ -641,6 +641,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8513083486144807844}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7247dd3339315654fb031c31c6bb9360, type: 3}
+  m_Script: {fileID: 1572387520, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

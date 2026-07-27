@@ -43,7 +43,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 787387017069306990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 527a414e2ef61f848a90eb09f249913c, type: 3}
+  m_Script: {fileID: -634999066, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AdditionalSounds:
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 787387017069306990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e88583c408674d4bad1d52c226ee09a, type: 3}
+  m_Script: {fileID: 66076693, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pivotPosition: {x: 0, y: 0, z: 0}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 787387017069306990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7cbe43188f5ce84fad95c37e1fb38d1, type: 3}
+  m_Script: {fileID: -2055878143, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PoolHistory: []

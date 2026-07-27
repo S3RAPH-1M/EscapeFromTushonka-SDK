@@ -297,7 +297,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8256658781085375107}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24d036eb74482c73a45008a331384570, type: 3}
+  m_Script: {fileID: 617723709, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Queue: 1014
@@ -435,7 +435,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8256658781085375109}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7688166e72e88f4aa34bef377444418, type: 3}
+  m_Script: {fileID: -2003355470, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _depthPhoto: {fileID: 8256658781085375969}
@@ -538,7 +538,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8256658781085375110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d1b3c645a12597d436628de9dfb75a7, type: 3}
+  m_Script: {fileID: -914863255, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _depthTextureDimension: 4096
@@ -588,7 +588,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8256658781085375111}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6cd54fe6fa95a708dd99b733c427bcf, type: 3}
+  m_Script: {fileID: 466981900, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DepthWriteShader: {fileID: 0}
@@ -680,7 +680,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8256658781085375111}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71f19125ed675b84d73c4be5997bf692, type: 3}
+  m_Script: {fileID: 1793546440, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ScreenAmbientShader: {fileID: 0}
@@ -733,7 +733,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8256658781085375111}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d233422f074a66d4eb80bf7ff833dbc3, type: 3}
+  m_Script: {fileID: 11500000, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
@@ -798,7 +798,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8256658781085375112}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15be4ba45428dee8f026b78774f990dd, type: 3}
+  m_Script: {fileID: -1782102746, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CloudsController: {fileID: 8256658781085373154}
@@ -1627,7 +1627,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8256658781085375112}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19f503c45be66dd2d19c337aa9b7f7d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Icosphere: {fileID: 4300000, guid: d22ea0b56f7919746a9940b6341a88df, type: 2}
@@ -4084,7 +4084,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8256658781085375117}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3ccc9c3a423e928f28e2eec9ad86d49, type: 3}
+  m_Script: {fileID: -753509647, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _lights:
@@ -4211,7 +4211,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8256658781085375124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349ebc1456847676591644bcb3be9fd4, type: 3}
+  m_Script: {fileID: -1099122039, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _intensity: 0
@@ -4269,7 +4269,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8256658781085375125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca7f3ee1833ae12e80f895cdbc796756, type: 3}
+  m_Script: {fileID: 1227086878, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PuddleWaterLevel: {x: 0, y: 0.95}
@@ -4287,7 +4287,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8256658781085375125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b77cbc1fc394199701e3ab6b63b8635, type: 3}
+  m_Script: {fileID: 406005197, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   RippleTexture: {fileID: 2800000, guid: 993b59d7130ee8e43b8da46de7b1a7ba, type: 3}
@@ -4318,7 +4318,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8256658781085375125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7147f224c9dd5e5146f97ef68ef353d, type: 3}
+  m_Script: {fileID: -1124080477, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WetShader: {fileID: 4800000, guid: 44312d3094813cb418e91f49b10e32ce, type: 3}
@@ -4507,7 +4507,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8256658781085375127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8504c541c268fa8bb542d2803f6542e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LightningLightOnClouds: {fileID: 2100000, guid: fbe6fb53717b4024294427e316054c34,
@@ -4861,7 +4861,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8256658781085375132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 353d7934d1ccd4ccf470caff158db640, type: 3}
+  m_Script: {fileID: -1982210572, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _windShader: {fileID: 7200000, guid: 0b69c764ee2ae2a44a3b3c1e65a8d012, type: 2}
@@ -4921,7 +4921,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8256658781085375133}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74d32e75219ecde1fbc97a08a7311476, type: 3}
+  m_Script: {fileID: 62364176, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CloseSize: 0.04
@@ -4982,7 +4982,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8256658781085375134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 996a3d54efe14f84c9602f9425bed72f, type: 3}
+  m_Script: {fileID: -1433182186, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ColorSpace: 2
@@ -5097,7 +5097,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8256658781085375134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 989fe7d97a0c08a4ab46da8a1575b9e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WindDegrees: 0
@@ -5114,7 +5114,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8256658781085375134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 283d485b8973cdd489881107098067d5, type: 3}
+  m_Script: {fileID: 1899678637, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LockCurrentTime: 0
@@ -5155,7 +5155,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8256658781085375134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16dba2837dc736d498fb5942d10a21cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   FadeTime: 2
@@ -5170,7 +5170,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8256658781085375134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bbe57f58a0c7cd42ac07e06cba861a5, type: 3}
+  m_Script: {fileID: -1998981401, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Sun: {fileID: 8256658781085375107}
@@ -5191,7 +5191,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8256658781085375134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86f5eb8d9dffe69438198c85cd34aeb6, type: 3}
+  m_Script: {fileID: 299189606, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Quad: {fileID: 4300000, guid: 5a1647a3cb048a74685283f14af4be1c, type: 2}

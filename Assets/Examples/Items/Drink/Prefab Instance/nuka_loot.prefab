@@ -55,7 +55,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8495833391263686394}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e88583c408674d4bad1d52c226ee09a, type: 3}
+  m_Script: {fileID: 66076693, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pivotPosition: {x: 0, y: 0, z: 0}

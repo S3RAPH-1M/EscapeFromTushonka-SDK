@@ -987,7 +987,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3365657628257404202}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08edfe2ca1c7fd541be5b33054148dbe, type: 3}
+  m_Script: {fileID: 993955352, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _baseTransform: {fileID: 0}
@@ -1965,7 +1965,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7585930425449327907}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68dd8dc2c418fe344b42212da6f87725, type: 3}
+  m_Script: {fileID: -308178512, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Renderers: []
@@ -2046,7 +2046,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7680516783779669399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65288f4b895192f42845279b4a544c7b, type: 3}
+  m_Script: {fileID: 1381109807, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LootPrefab: {fileID: 4339904050685914355}
@@ -2060,7 +2060,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7680516783779669399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e88583c408674d4bad1d52c226ee09a, type: 3}
+  m_Script: {fileID: 66076693, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pivotPosition: {x: 0, y: 0, z: 0}

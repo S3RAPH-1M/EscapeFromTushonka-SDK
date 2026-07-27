@@ -79,7 +79,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1323103693241637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e88583c408674d4bad1d52c226ee09a, type: 3}
+  m_Script: {fileID: 66076693, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pivotPosition: {x: -0.0009395927, y: 0.026034277, z: -0.02613546}
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1323103693241637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21e69c8a5f87ea841b01ba1b7c0b94d2, type: 3}
+  m_Script: {fileID: 535656609, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CanChangeAngleByDistance: 0
@@ -436,7 +436,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1736573014914591}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd248f335b7d13d41913623b35e28ab3, type: 3}
+  m_Script: {fileID: 922435528, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LensRenderer: {fileID: 23298055235424571}
@@ -566,7 +566,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1994975866291710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e5a4f829302b924b8852a834a943464, type: 3}
+  m_Script: {fileID: -1087567788, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ChromaticAberration: 1
@@ -595,7 +595,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1994975866291710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dabbc36786e379648bb30f5558171f96, type: 3}
+  m_Script: {fileID: 475741104, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   FieldOfView: 11
@@ -614,7 +614,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1994975866291710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0beeb7eea54e44149b5bc7554b6a430e, type: 3}
+  m_Script: {fileID: 300415929, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Reticle: {fileID: 0}

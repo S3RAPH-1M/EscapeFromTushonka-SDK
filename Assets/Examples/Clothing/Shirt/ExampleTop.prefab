@@ -376,7 +376,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1177683321828973424}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08edfe2ca1c7fd541be5b33054148dbe, type: 3}
+  m_Script: {fileID: 993955352, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _skinnedMeshRenderer: {fileID: 6657600178226775025}
@@ -543,7 +543,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1177683321828973424}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a1734fcf7da8f84c9c144e71d2449a1, type: 3}
+  m_Script: {fileID: 535331970, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   IsApplyAllMaterials: 0
@@ -1892,7 +1892,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7276297947587726546}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf903bf0ee4d44c488e5df39f5abd016, type: 3}
+  m_Script: {fileID: 1409241034, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _lods:
@@ -1906,7 +1906,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7276297947587726546}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8703368ab9e0c8643a70c4437ddc5310, type: 3}
+  m_Script: {fileID: -1536487925, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _clippingCustoms: 1

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c3e5ff03e09c6a4e88717ccd8627409, type: 3}
+  m_Script: {fileID: 1449462894, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: OnBreath_USED_BY_BOTS
   m_EditorClassIdentifier: 
   Trigger: 29

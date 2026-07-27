@@ -117,7 +117,7 @@ namespace TarkovSdk.Editor
         private readonly List<string> _log = new List<string>();
         private bool _lastRunHadFailures;
 
-        [MenuItem("Tarkov SDK/Tarkov Assembly Extractor")]
+        [MenuItem("EFT-SDK/Kit Creation/Tools/Tarkov Assembly Extractor")]
         public static void ShowWindow()
         {
             TarkovAssemblyExtractorWindow win = GetWindow<TarkovAssemblyExtractorWindow>("Tarkov Assembly Extractor");

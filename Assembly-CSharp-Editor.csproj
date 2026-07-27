@@ -62,7 +62,6 @@
   <ItemGroup>
     <Compile Include="Assets\Editor\Groovey\GameReadyCharacterArmsCreator.cs" />
     <Compile Include="Assets\Editor\Groovey\AutoTransformLinks.cs" />
-    <Compile Include="Assets\Scripts\Custom\Item Preview\Editor\ItemPreviewWindow.cs" />
     <Compile Include="Assets\Editor\Groovey\GrooveyGUIToolbox.cs" />
     <Compile Include="Assets\Editor\SDK2\TarkovAssemblyExtractorWindow.cs" />
     <Compile Include="Assets\Editor\Groovey\CustomRigLayoutEditor.cs" />
@@ -78,9 +77,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Editor\SDK2\dnlib.dll" />
-    <None Include="Assets\Packages\Custom Post Processing\PostProcessing\Shaders\Editor\CurveGrid.shader" />
-    <None Include="Assets\Packages\Custom Post Processing\PostProcessing\Shaders\Editor\Trackball.shader" />
-    <None Include="Assets\Packages\Custom Post Processing\PostProcessing\Shaders\Editor\ConvertToLog.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -823,6 +819,10 @@
       <HintPath>Assets\Plugins\Tarkov.Assemblies\Comfort.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.Postprocessing.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
       <Private>False</Private>
@@ -1412,10 +1412,6 @@
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{B3673907-7EA6-9FDA-FF83-A6E2F9126953}</Project>
       <Name>Assembly-CSharp</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Postprocessing.Runtime.csproj">
-      <Project>{7941A4F3-1F98-54B7-B5C6-C0232B7220BF}</Project>
-      <Name>Unity.Postprocessing.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.AssetBundleBrowser.Editor.csproj">
       <Project>{49F2500E-9CDA-F8AF-B74B-010FE976A9F2}</Project>

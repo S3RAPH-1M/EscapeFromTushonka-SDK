@@ -622,7 +622,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3430783351508446500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 047cc607754faa644b4aeb0a3139141f, type: 3}
+  m_Script: {fileID: -694959220, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DoorState: 7
@@ -703,7 +703,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3692819648323441632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e88583c408674d4bad1d52c226ee09a, type: 3}
+  m_Script: {fileID: 66076693, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pivotPosition: {x: -0.000024842098, y: -0.056210227, z: -0.027350076}
@@ -1540,7 +1540,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8966244225878985791}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 047cc607754faa644b4aeb0a3139141f, type: 3}
+  m_Script: {fileID: -694959220, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DoorState: 7

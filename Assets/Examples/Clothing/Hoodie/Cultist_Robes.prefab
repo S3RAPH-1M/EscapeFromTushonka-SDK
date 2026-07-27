@@ -473,7 +473,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1186127856356269641}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08edfe2ca1c7fd541be5b33054148dbe, type: 3}
+  m_Script: {fileID: 993955352, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _skinnedMeshRenderer: {fileID: 5172184148626614375}
@@ -640,7 +640,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1186127856356269641}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a1734fcf7da8f84c9c144e71d2449a1, type: 3}
+  m_Script: {fileID: 535331970, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   IsApplyAllMaterials: 0
@@ -1910,7 +1910,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5650268817831729188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08edfe2ca1c7fd541be5b33054148dbe, type: 3}
+  m_Script: {fileID: 993955352, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _skinnedMeshRenderer: {fileID: 1180290809091451873}
@@ -2455,7 +2455,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7234585306411509815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf903bf0ee4d44c488e5df39f5abd016, type: 3}
+  m_Script: {fileID: 1409241034, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _lods:
@@ -2470,7 +2470,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7234585306411509815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18fa6fb06224b4d4c9be75ed46c01fe6, type: 3}
+  m_Script: {fileID: -1935745000, guid: 865fdfd4ca77fcb4bac580702f09a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _hooded:

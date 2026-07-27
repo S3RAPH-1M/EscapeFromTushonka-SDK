@@ -218,52 +218,64 @@ namespace AssetBundleBrowser.Custom
             }
         }
 
+        public bool HasMappings => data != null && data.Lookup != null && data.Lookup.Count > 0;
+
         public void ReplaceCabIDs(string path)
         {
-            byte[] pattern = new byte[] { 0x43, 0x41, 0x42, 0x2D };
-            var fileBytes = File.ReadAllBytes(path);
-            ReplaceIds(pattern, fileBytes, data.Lookup);
-            File.WriteAllBytes(path, fileBytes);
+            byte[] fileBytes = File.ReadAllBytes(path);
+            int changes = ReplaceCabIdsInBuffer(fileBytes);
+            if (changes > 0)
+            {
+                File.WriteAllBytes(path, fileBytes);
+            }
         }
 
-        void ReplaceIds(byte[] pattern, byte[] bytes, Dictionary<string, string> mappings)
+        public int ReplaceCabIdsInBuffer(byte[] bytes)
         {
-            //Debug.Log($"There are {bytes.Length} Bytes!!!");
-            //Debug.Log($"There are {mappings.Count} mappings");
-            var buffer = new byte[32];
+            if (!HasMappings) return 0;
+            byte[] pattern = { 0x43, 0x41, 0x42, 0x2D };
+            return ReplaceIds(pattern, bytes, data.Lookup);
+        }
 
-            for (var i = 0; i < bytes.Length; i++)
+        int ReplaceIds(byte[] pattern, byte[] bytes, Dictionary<string, string> mappings)
+        {
+            const int IdLength = 32;
+            if (bytes.Length < pattern.Length + IdLength) return 0;
+
+            int replacementCount = 0;
+            int searchStart = 0;
+            var buffer = new byte[IdLength];
+            ReadOnlySpan<byte> patternSpan = pattern.AsSpan();
+
+            while (searchStart <= bytes.Length - pattern.Length)
             {
-                var match = true;
-                for (var j = 0; j < pattern.Length; j++)
+                int found = bytes.AsSpan(searchStart).IndexOf(patternSpan);
+                if (found < 0) break;
+
+                int matchAt = searchStart + found;
+                int idOffset = matchAt + pattern.Length;
+
+                if (idOffset + IdLength > bytes.Length)
                 {
-                    var thisIndex = i + j;
-                    if (thisIndex < bytes.Length)
-                    {
-                        if (bytes[thisIndex] != pattern[j])
-                        {
-                            match = false;
-                        }
-                    }
+                    break;
                 }
 
-                if (match)
+                Array.Copy(bytes, idOffset, buffer, 0, buffer.Length);
+                string id = Encoding.UTF8.GetString(buffer);
+                if (mappings.TryGetValue(id, out string newId))
                 {
-                    var offset = i + pattern.Length;
-                    Array.Copy(bytes, offset, buffer, 0, buffer.Length);
-                    var id = Encoding.UTF8.GetString(buffer);
-                    if (mappings.TryGetValue(id, out var newId))
-                    {
-                        var newIdBytes = Encoding.UTF8.GetBytes(newId);
-                        //Debug.Log($"Replaced {id} with {newId}");
-                        Array.Copy(newIdBytes, 0, bytes, offset, 32);
-                    }
-                    else
-                    {
-                        //Debug.Log($"Failed to get mapping for id: {id}");
-                    }
+                    byte[] newIdBytes = Encoding.UTF8.GetBytes(newId);
+                    int copyLen = Math.Min(IdLength, newIdBytes.Length);
+                    Array.Copy(newIdBytes, 0, bytes, idOffset, copyLen);
+                    replacementCount++;
+                    if (_logging)
+                        Debug.Log($"Replaced CabID: {id} -> {newId}");
                 }
+
+                searchStart = matchAt + 1;
             }
+
+            return replacementCount;
         }
     }
 

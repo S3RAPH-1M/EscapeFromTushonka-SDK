@@ -225,28 +225,87 @@ namespace AssetBundleBrowser.Custom
         public void ReplacePathIDs(AssetsManager assetsManager, string bundleName, string outputDirectory,
 	        BuildAssetBundleOptions options)
         {
+            System.Diagnostics.Stopwatch sw = System.Diagnostics.Stopwatch.StartNew();
+            string path = $"{Directory.GetCurrentDirectory()}/{outputDirectory}/{bundleName}";
+            string bundleLabel = Path.GetFileName(path);
+
             try
             {
-                var path = $"{Directory.GetCurrentDirectory()}/{outputDirectory}/{bundleName}";
-
                 BundleFileInstance bundle = assetsManager.LoadBundleFile(path);
                 AssetsFileInstance assetsFile = assetsManager.LoadAssetsFileFromBundle(bundle, 0, true);
                 IList<AssetFileInfo> assetList = assetsFile.file.AssetInfos;
 
-                bool replaced = TryReplaceFields(assetList, assetsManager, assetsFile);
-                if (!replaced)
+                int pathIdChanges = ApplyPathIdReplacements(assetList, assetsManager, assetsFile);
+
+                if (pathIdChanges > 0)
                 {
-                    Debug.Log($"skipping {bundle.name} as no IDs were found to replace");
+                    bundle.file.BlockAndDirInfo.DirectoryInfos[0].SetNewData(assetsFile.file);
+                }
+
+                bool cabHasMappings = _tab != null && _tab.HasMappings;
+                if (pathIdChanges == 0 && !cabHasMappings)
+                {
+                    sw.Stop();
+                    Debug.Log($"[{bundleLabel}] no PathID changes, CAB dictionary empty; kept Unity build ({sw.ElapsedMilliseconds}ms)");
                     assetsManager.UnloadAll();
                     return;
                 }
 
-                SaveChangesToBundle(assetsManager, assetsFile, path, bundle);
-
-                AssetBundleBrowserMain.instance.m_CabReplacerTab.ReplaceCabIDs(path);
+                byte[] uncompressedBytes;
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (AssetsFileWriter writer = new AssetsFileWriter(ms))
+                    {
+                        bundle.file.Write(writer);
+                    }
+                    uncompressedBytes = ms.ToArray();
+                }
 
                 assetsManager.UnloadAll();
-                CompressBundle(assetsManager, options, path);
+
+                int cabChanges = cabHasMappings ? _tab.ReplaceCabIdsInBuffer(uncompressedBytes) : 0;
+
+                if (pathIdChanges + cabChanges == 0)
+                {
+                    sw.Stop();
+                    Debug.Log($"[{bundleLabel}] no PathID/CAB matches; kept Unity build ({sw.ElapsedMilliseconds}ms)");
+                    return;
+                }
+
+                AssetBundleCompressionType compression = ResolveCompressionType(options);
+                string unpackedTempPath = path + ".unpacked";
+                string packedTempPath = path + ".packed";
+
+                try
+                {
+                    File.WriteAllBytes(unpackedTempPath, uncompressedBytes);
+                    BundleFileInstance modifiedBundle = assetsManager.LoadBundleFile(unpackedTempPath);
+                    try
+                    {
+                        using (AssetsFileWriter writer = new AssetsFileWriter(packedTempPath))
+                        {
+                            if (compression == AssetBundleCompressionType.None)
+                                modifiedBundle.file.Write(writer);
+                            else
+                                modifiedBundle.file.Pack(writer, compression);
+                        }
+                    }
+                    finally
+                    {
+                        assetsManager.UnloadAll();
+                    }
+
+                    File.Delete(path);
+                    File.Move(packedTempPath, path);
+                }
+                finally
+                {
+                    if (File.Exists(unpackedTempPath)) File.Delete(unpackedTempPath);
+                    if (File.Exists(packedTempPath)) File.Delete(packedTempPath);
+                }
+
+                sw.Stop();
+                Debug.Log($"[{bundleLabel}] PathIDs: {pathIdChanges}, CABs: {cabChanges}, packed {compression} in {sw.ElapsedMilliseconds}ms");
             }
             catch (Exception e)
             {
@@ -254,54 +313,62 @@ namespace AssetBundleBrowser.Custom
             }
         }
 
-        private bool TryReplaceFields(IList<AssetFileInfo> assetList, AssetsManager am, AssetsFileInstance assetsFile)
+        private int ApplyPathIdReplacements(IList<AssetFileInfo> assetList, AssetsManager am, AssetsFileInstance assetsFile)
         {
-            var counter = 0;
+            if (data == null || data.Lookup == null || data.Lookup.Count == 0) return 0;
+
+            int totalChanges = 0;
             foreach (AssetFileInfo assetInfo in assetList)
             {
                 AssetTypeValueField baseField = am.GetBaseField(assetsFile, assetInfo);
-	            ReplacePathId(assetInfo);
-                RecursiveReplaceChildPathIds(baseField);
-                byte[] newBytes = baseField.WriteToByteArray();
-                assetInfo.SetNewData(newBytes);
-                counter++;
+                bool ownChanged = ReplacePathId(assetInfo);
+                int childChanges = RecursiveReplaceChildPathIds(baseField);
+
+                if (ownChanged || childChanges > 0)
+                {
+                    byte[] newBytes = baseField.WriteToByteArray();
+                    assetInfo.SetNewData(newBytes);
+                    totalChanges += (ownChanged ? 1 : 0) + childChanges;
+                }
             }
-
-            return counter > 0;
+            return totalChanges;
         }
 
-        private void ReplacePathId(AssetFileInfo assetInfo)
+        private bool ReplacePathId(AssetFileInfo assetInfo)
         {
-	        if (assetInfo.PathId == 0) return;
-
-	        if (data.Lookup.TryGetValue(assetInfo.PathId, out long eftPathId))
-	        {
-		        assetInfo.PathId = eftPathId;
-	        }
+            if (assetInfo.PathId == 0) return false;
+            if (data.Lookup.TryGetValue(assetInfo.PathId, out long eftPathId))
+            {
+                assetInfo.PathId = eftPathId;
+                return true;
+            }
+            return false;
         }
 
-        private void ReplacePathId(AssetTypeValueField field)
+        private bool ReplacePathId(AssetTypeValueField field)
         {
-	        AssetTypeValue fieldValue = field.Get("m_PathID").Value;
-	        if (fieldValue == null) return;
-	        
-	        long pathId = fieldValue.AsLong;
-	        if (pathId == 0) return;
-	        
-	        if (data.Lookup.TryGetValue(pathId, out long eftPathId))
-	        {
-		        fieldValue.AsLong = eftPathId;
-	        }
-	        
-	        if (_logging)
-		        Debug.Log($"Found matching pathID: {pathId.ToString()} asset {field.TypeName}{field.FieldName}");
+            AssetTypeValue fieldValue = field.Get("m_PathID").Value;
+            if (fieldValue == null) return false;
+
+            long pathId = fieldValue.AsLong;
+            if (pathId == 0) return false;
+
+            if (data.Lookup.TryGetValue(pathId, out long eftPathId))
+            {
+                fieldValue.AsLong = eftPathId;
+                if (_logging)
+                    Debug.Log($"Found matching pathID: {pathId} -> {eftPathId} at {field.TypeName}{field.FieldName}");
+                return true;
+            }
+            return false;
         }
 
-        private void RecursiveReplaceChildPathIds(AssetTypeValueField field)
+        private int RecursiveReplaceChildPathIds(AssetTypeValueField field)
         {
+            int count = 0;
             foreach (AssetTypeValueField child in field.Children)
             {
-                if (child.TemplateField.HasValue && !child.TemplateField.IsArray) 
+                if (child.TemplateField.HasValue && !child.TemplateField.IsArray)
                     continue;
                 if (child.TemplateField.IsArray && child.TemplateField.Children[1].ValueType != AssetValueType.None)
                     continue;
@@ -309,71 +376,21 @@ namespace AssetBundleBrowser.Custom
                 string typeName = child.TypeName;
                 if (typeName.StartsWith("PPtr<") && child.Children.Count == 2)
                 {
-	                ReplacePathId(child);
+                    if (ReplacePathId(child)) count++;
                 }
                 else
                 {
-                    RecursiveReplaceChildPathIds(child);
+                    count += RecursiveReplaceChildPathIds(child);
                 }
             }
+            return count;
         }
 
-        private static void SaveChangesToBundle(AssetsManager assetsManager, AssetsFileInstance assetsFile, string path, BundleFileInstance bundle)
+        private static AssetBundleCompressionType ResolveCompressionType(BuildAssetBundleOptions options)
         {
-	        using (var memoryStream = new MemoryStream())
-	        using (var assetWriter = new AssetsFileWriter(memoryStream))
-	        {
-		        assetsFile.file.Write(assetWriter);
-	        }
-	        
-	        List<AssetBundleDirectoryInfo> directoryInfos = bundle.file.BlockAndDirInfo.DirectoryInfos;
-	        directoryInfos[0].SetNewData(assetsFile.file);
-
-            string modPath = path + "_mod";
-            using (var bundleWriter = new AssetsFileWriter(modPath))
-            {
-	            bundle.file.Write(bundleWriter);
-            }
-            
-            // We need to unload this bundle file as the AM holds an open handle to it.
-            assetsManager.UnloadBundleFile(path);
-            File.Delete(path);
-            File.Move(modPath, path);
-
-            // !!!if sharing violation exception will come back, uncomment things above!!!
-        }
-
-        private void CompressBundle(AssetsManager am, BuildAssetBundleOptions options, string path)
-        {
-            BundleFileInstance bundle = am.LoadBundleFile(path);
-            switch (options)
-            {
-                case BuildAssetBundleOptions.None:
-                {
-                    string modPath = path + "_c";
-                    using (var writer = new AssetsFileWriter(modPath))
-                    {
-                        bundle.file.Pack(writer, AssetBundleCompressionType.LZMA);
-                    }
-                    am.UnloadAll();
-                    File.Delete(path);
-                    File.Move(modPath, path);
-                    break;
-                }
-                case BuildAssetBundleOptions.ChunkBasedCompression:
-                {
-                    string modPath = path + "_c";
-                    using (var writer = new AssetsFileWriter(modPath))
-                    {
-                        bundle.file.Pack(writer, AssetBundleCompressionType.LZ4);
-                    }
-                    am.UnloadAll();
-                    File.Delete(path);
-                    File.Move(modPath, path);
-                    break;
-                }
-            }
-            am.UnloadAll();
+            if ((options & BuildAssetBundleOptions.UncompressedAssetBundle) != 0)
+                return AssetBundleCompressionType.None;
+            return AssetBundleCompressionType.LZ4;
         }
     }
 

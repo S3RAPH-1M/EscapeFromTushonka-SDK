@@ -85,7 +85,40 @@ namespace AssetBundleBrowser.Custom
                         SelectionChanged?.Invoke();
                     });
                 }
+
+                EditorGUILayout.Space(2f);
+                DrawBuildSelectedCategoryButton();
                 EditorGUILayout.Space(4f);
+            }
+        }
+
+        private void DrawBuildSelectedCategoryButton()
+        {
+            CategoryData selectedData = CategoryStorage.FindByName(SelectedCategory);
+            int selectedBundleCount = selectedData?.BundleNames?.Count ?? 0;
+            bool disabled = IsAllSelected || selectedData == null || selectedBundleCount == 0;
+
+            using (new EditorGUI.DisabledScope(disabled))
+            {
+                string label = IsAllSelected
+                    ? "Build Selected Category"
+                    : $"Build '{SelectedCategory}' ({selectedBundleCount})";
+                string tooltip = IsAllSelected
+                    ? "Select a category first."
+                    : selectedBundleCount == 0
+                        ? $"Category '{SelectedCategory}' has no bundles assigned."
+                        : $"Build every bundle in '{SelectedCategory}' plus their recursive dependencies. Uses the category's Build Location if set, otherwise <Output Path>/{SelectedCategory}/.";
+
+                if (GUILayout.Button(new GUIContent(label, tooltip), GUILayout.Height(24f)))
+                {
+                    AssetBundleBrowserMain browser = AssetBundleBrowserMain.instance;
+                    if (browser == null || browser.m_BuildTab == null)
+                    {
+                        Debug.LogError("AssetBundle Browser Build tab is not available.");
+                        return;
+                    }
+                    browser.m_BuildTab.BuildCategory(SelectedCategory);
+                }
             }
         }
 

@@ -1,5 +1,6 @@
 using AssetBundleBrowser.AssetBundleDataSource;
 using AssetBundleBrowser.AssetBundleModel;
+using AssetBundleBrowser.Custom;
 using AssetsTools.NET.Extra;
 using System;
 using System.Collections.Generic;
@@ -365,6 +366,7 @@ namespace AssetBundleBrowser
                 {
 	                AssetBundleBrowserMain.instance.m_ReplacerTab.ReplacePathIDs(assetsManager, assetBundleName,
 		                m_UserData.m_OutputPath, opt);
+	                MoveBundleToCategoryLocation(assetBundleName);
 	                if (m_InspectTab == null) return;
 	                m_InspectTab.AddBundleFolder(m_UserData.m_OutputPath);
 	                m_InspectTab.RefreshBundles();
@@ -391,17 +393,58 @@ namespace AssetBundleBrowser
                 Debug.LogError("BuildSingleBundle: bundle name is empty.");
                 return;
             }
+            BuildBundleSet(new[] { assetBundleName }, includeDependencies, $"'{assetBundleName}'");
+        }
 
-            List<string> bundleNames = new List<string> { assetBundleName };
+        internal void BuildCategory(string categoryName)
+        {
+            if (string.IsNullOrEmpty(categoryName))
+            {
+                Debug.LogError("BuildCategory: category name is empty.");
+                return;
+            }
+            if (string.Equals(categoryName, CategoryStorage.AllCategoryName, StringComparison.OrdinalIgnoreCase))
+            {
+                Debug.LogError("BuildCategory: cannot build the 'All' pseudo-category. Use the Build tab's Build button for a full build.");
+                return;
+            }
+
+            CategoryData category = CategoryStorage.FindByName(categoryName);
+            if (category == null)
+            {
+                Debug.LogError($"BuildCategory: category '{categoryName}' not found.");
+                return;
+            }
+            if (category.BundleNames == null || category.BundleNames.Count == 0)
+            {
+                Debug.LogWarning($"BuildCategory: category '{categoryName}' has no bundles assigned.");
+                return;
+            }
+
+            BuildBundleSet(category.BundleNames, includeDependencies: true, $"category '{categoryName}' ({category.BundleNames.Count} bundle{(category.BundleNames.Count == 1 ? string.Empty : "s")})");
+        }
+
+        private void BuildBundleSet(IEnumerable<string> seedBundleNames, bool includeDependencies, string contextLabel)
+        {
+            List<string> bundleNames = new List<string>();
+            foreach (string name in seedBundleNames)
+            {
+                if (!string.IsNullOrEmpty(name) && !bundleNames.Contains(name))
+                    bundleNames.Add(name);
+            }
+            int seedCount = bundleNames.Count;
+
             if (includeDependencies)
             {
-                string[] deps = AssetDatabase.GetAssetBundleDependencies(assetBundleName, recursive: true);
-                if (deps != null)
+                List<string> seeds = new List<string>(bundleNames);
+                foreach (string b in seeds)
                 {
-                    foreach (string dep in deps)
+                    string[] deps = AssetDatabase.GetAssetBundleDependencies(b, recursive: true);
+                    if (deps == null) continue;
+                    foreach (string d in deps)
                     {
-                        if (!string.IsNullOrEmpty(dep) && !bundleNames.Contains(dep))
-                            bundleNames.Add(dep);
+                        if (!string.IsNullOrEmpty(d) && !bundleNames.Contains(d))
+                            bundleNames.Add(d);
                     }
                 }
             }
@@ -412,7 +455,7 @@ namespace AssetBundleBrowser
                 string[] paths = AssetDatabase.GetAssetPathsFromAssetBundle(name);
                 if (paths == null || paths.Length == 0)
                 {
-                    Debug.LogWarning($"BuildSingleBundle: bundle '{name}' has no assets assigned; skipping.");
+                    Debug.LogWarning($"BuildBundleSet: bundle '{name}' has no assets assigned; skipping.");
                     continue;
                 }
                 builds.Add(new AssetBundleBuild
@@ -424,7 +467,7 @@ namespace AssetBundleBrowser
 
             if (builds.Count == 0)
             {
-                Debug.LogError($"BuildSingleBundle: no buildable bundles resolved for '{assetBundleName}'.");
+                Debug.LogError($"BuildBundleSet: no buildable bundles resolved for {contextLabel}.");
                 return;
             }
 
@@ -432,7 +475,7 @@ namespace AssetBundleBrowser
             {
                 if (string.IsNullOrEmpty(m_UserData.m_OutputPath))
                 {
-                    Debug.LogError("BuildSingleBundle: Output path is not set. Open the AssetBundle Browser Build tab and set an Output Path first.");
+                    Debug.LogError("BuildBundleSet: Output path is not set. Open the AssetBundle Browser Build tab and set an Output Path first.");
                     return;
                 }
                 if (!Directory.Exists(m_UserData.m_OutputPath))
@@ -463,7 +506,7 @@ namespace AssetBundleBrowser
 
             if (manifest == null)
             {
-                Debug.LogError($"BuildSingleBundle: Unity build failed for '{assetBundleName}'.");
+                Debug.LogError($"BuildBundleSet: Unity build failed for {contextLabel}.");
                 return;
             }
 
@@ -471,14 +514,81 @@ namespace AssetBundleBrowser
             {
                 AssetBundleBrowserMain.instance.m_ReplacerTab.ReplacePathIDs(
                     assetsManager, builtBundleName, m_UserData.m_OutputPath, opt);
+                MoveBundleToCategoryLocation(builtBundleName);
             }
 
             AssetDatabase.Refresh(ImportAssetOptions.ForceUpdate);
 
-            string depsSuffix = includeDependencies && builds.Count > 1
-                ? $" (+ {builds.Count - 1} dependencies)"
+            int depCount = builds.Count - seedCount;
+            string depsSuffix = includeDependencies && depCount > 0
+                ? $" (+ {depCount} dependencies)"
                 : string.Empty;
-            Debug.Log($"[AssetBundle Build] Built '{assetBundleName}'{depsSuffix} -> {m_UserData.m_OutputPath}");
+            Debug.Log($"[AssetBundle Build] Built {contextLabel}{depsSuffix} -> {m_UserData.m_OutputPath}");
+        }
+
+        private string ResolveCategoryOutputDirectory(string bundleName)
+        {
+            CategoryData category = CategoryStorage.FindByBundle(bundleName);
+            if (category == null) return null;
+
+            if (!string.IsNullOrWhiteSpace(category.BuildLocation))
+            {
+                try
+                {
+                    return Path.GetFullPath(category.BuildLocation);
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogWarning($"Category '{category.Name}' has invalid BuildLocation '{category.BuildLocation}': {ex.Message}. Falling back to '<OutputPath>/{category.Name}/'.");
+                }
+            }
+
+            return Path.Combine(m_UserData.m_OutputPath, category.Name);
+        }
+
+        private void MoveBundleToCategoryLocation(string bundleName)
+        {
+            string targetDir = ResolveCategoryOutputDirectory(bundleName);
+            if (string.IsNullOrEmpty(targetDir)) return;
+
+            string sourcePath = Path.Combine(m_UserData.m_OutputPath, bundleName);
+            if (!File.Exists(sourcePath))
+            {
+                Debug.LogWarning($"MoveBundleToCategoryLocation: bundle '{bundleName}' not found at expected location '{sourcePath}'.");
+                return;
+            }
+
+            string sourceFull = Path.GetFullPath(sourcePath);
+            string targetPath = Path.Combine(targetDir, bundleName);
+            string targetFull = Path.GetFullPath(targetPath);
+
+            if (string.Equals(sourceFull, targetFull, StringComparison.OrdinalIgnoreCase)) return;
+
+            try
+            {
+                string targetParent = Path.GetDirectoryName(targetFull);
+                if (!string.IsNullOrEmpty(targetParent))
+                {
+                    Directory.CreateDirectory(targetParent);
+                }
+                if (File.Exists(targetFull)) File.Delete(targetFull);
+                File.Move(sourceFull, targetFull);
+
+                string sourceManifest = sourceFull + ".manifest";
+                string targetManifest = targetFull + ".manifest";
+                if (File.Exists(sourceManifest))
+                {
+                    if (File.Exists(targetManifest)) File.Delete(targetManifest);
+                    File.Move(sourceManifest, targetManifest);
+                }
+
+                if (AssetBundleBrowserMain.VerboseLogs)
+                    Debug.Log($"[Category Routing] Moved '{bundleName}' -> {targetDir}");
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"Failed to move bundle '{bundleName}' to category location '{targetDir}': {ex.Message}");
+            }
         }
 
         private static void DirectoryCopy(string sourceDirName, string destDirName)

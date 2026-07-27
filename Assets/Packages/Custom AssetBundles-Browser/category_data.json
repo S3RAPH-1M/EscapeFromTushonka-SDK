@@ -1,11 +1,3 @@
 {
-  "Categories": [
-    {
-      "Name": "ArenaMod",
-      "BuildLocation": "C:\\Users\\Administrator\\Documents\\ArenaMod\\Bundles",
-      "BundleNames": [
-        "cube_of_evil"
-      ]
-    }
-  ]
+  "Categories": []
 }

@@ -89,7 +89,7 @@ namespace AssetBundleBrowser
             m_CabReplacerTab.OnEnable(subPos);
             if (m_ReplacerTab == null)
                 m_ReplacerTab = new AssetBundleReplacerTab(m_CabReplacerTab);
-            m_ReplacerTab.OnEnable(subPos);
+            m_ReplacerTab.OnEnable(subPos, m_CabReplacerTab);
             m_RefreshTexture = EditorGUIUtility.FindTexture("Refresh");
 
             InitDataSources();

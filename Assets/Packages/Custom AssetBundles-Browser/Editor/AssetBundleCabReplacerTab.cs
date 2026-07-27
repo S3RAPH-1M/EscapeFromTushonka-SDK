@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using AssetsTools.NET;
 using AssetsTools.NET.Extra;
+using Newtonsoft.Json;
 using UnityEditor;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
@@ -195,25 +196,21 @@ namespace AssetBundleBrowser.Custom
             var path = $"{Directory.GetCurrentDirectory()}/Assets/Packages/Custom AssetBundles-Browser/cab_data.json";
             try
             {
-                using var streamReader = new StreamReader(path);
-                string json = streamReader.ReadToEnd();
-                var cabDictionaryData = JsonUtility.FromJson<CabDictionaryData>(json);
+                string json = File.ReadAllText(path);
+                CabDictionaryData cabDictionaryData = JsonConvert.DeserializeObject<CabDictionaryData>(json);
 
                 if (cabDictionaryData == null || !cabDictionaryData.SuitableForDict)
                 {
                     throw new Exception("Json is faulty");
                 }
 
+                cabDictionaryData.OnAfterDeserialize();
+                Debug.Log($"[CAB dict] loaded {cabDictionaryData.Lookup.Count} mappings from cab_data.json (first key: {(cabDictionaryData.sdk.Count > 0 ? cabDictionaryData.sdk[0] : "none")})");
                 return cabDictionaryData;
             }
             catch (Exception ex)
             {
-                Debug.LogError($"Some error occured while reading data at path: {path}, temporary empty file will be created. Exception: {ex}");
-                /*using (var streamWriter = new StreamWriter(path))
-                {
-                    streamWriter.Write("{}");
-                }*/
-
+                Debug.LogError($"Some error occured while reading data at path: {path}, temporary empty data will be used. Exception: {ex}");
                 return new CabDictionaryData();
             }
         }

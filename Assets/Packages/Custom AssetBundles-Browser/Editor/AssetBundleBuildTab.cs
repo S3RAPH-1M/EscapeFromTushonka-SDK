@@ -336,7 +336,7 @@ namespace AssetBundleBrowser
             if (Model.DataSource.CanSpecifyBuildOptions) {
                 if (m_UserData.m_Compression == CompressOptions.Uncompressed)
                     opt |= BuildAssetBundleOptions.UncompressedAssetBundle;
-                else if (m_UserData.m_Compression == CompressOptions.ChunkBasedCompression)
+                else
                     opt |= BuildAssetBundleOptions.ChunkBasedCompression;
                 foreach (ToggleData tog in m_ToggleData)
                 {

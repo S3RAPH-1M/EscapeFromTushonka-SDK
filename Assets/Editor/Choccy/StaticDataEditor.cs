@@ -235,7 +235,7 @@ public class StaticDataEditor : EditorWindow
         }
         else
         {
-            DrawStaticDataEditor();
+            //DrawStaticDataEditor();
         }
 
         // Animation preview section
@@ -365,7 +365,7 @@ public class StaticDataEditor : EditorWindow
         animationTime = 0f;
         lastUpdateTime = Time.realtimeSinceStartup;
     }
-
+    /*
     private void DrawStaticDataEditor()
     {        
         List<EventsCollection> eventsCollections = _animatorControllerStaticData_stateHashToEventsCollectionField.GetValue(staticData) as List<EventsCollection>;
@@ -475,7 +475,7 @@ public class StaticDataEditor : EditorWindow
             
         }
     }
-
+    */
     private void DrawAnimationEventParameter(AnimationEvent animationEvent)
     {
         EditorGUILayout.LabelField("Animation Event Parameter", EditorStyles.boldLabel);

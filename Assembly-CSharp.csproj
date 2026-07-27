@@ -60,478 +60,24 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.43f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\DestroyObjectOnServer.cs" />
-    <Compile Include="Assets\Scripts\EFT\InputSystem\ECommand.cs" />
-    <Compile Include="Assets\Scripts\PowOfTwoDimensions.cs" />
-    <Compile Include="Assets\Scripts\HotObject.cs" />
-    <Compile Include="Assets\Scripts\MuzzleLight.cs" />
-    <Compile Include="Assets\Scripts\EFT\EInteractionType.cs" />
-    <Compile Include="Assets\Scripts\EFT\DistanceBlendOptions.cs" />
-    <Compile Include="Assets\Scripts\GClass778.cs" />
-    <Compile Include="Assets\Scripts\EDecalTextureType.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\StationaryWeapon.cs" />
-    <Compile Include="Assets\Scripts\EFT\Weather\WeatherDebug.cs" />
     <Compile Include="Assets\Tools\Unity Bundle Loader\AssetBundleLoader.cs" />
-    <Compile Include="Assets\Scripts\CoverType.cs" />
-    <Compile Include="Assets\Scripts\ThrowableSettings.cs" />
-    <Compile Include="Assets\Scripts\EFT\ShellExtractionData.cs" />
-    <Compile Include="Assets\Scripts\EBipodToggleDirection.cs" />
-    <Compile Include="Assets\Scripts\AIPlaceInfo.cs" />
-    <Compile Include="Assets\Scripts\TOD_SkyQualityType.cs" />
-    <Compile Include="Assets\Scripts\DeferredDecals\DeferredDecalRenderer.cs" />
-    <Compile Include="Assets\Scripts\EFT\UI\DragAndDrop\GridView.cs" />
-    <Compile Include="Assets\Scripts\EFT\NetworkPackets\EHitType.cs" />
-    <Compile Include="Assets\Scripts\CC_FastVignette.cs" />
-    <Compile Include="Assets\Scripts\TOD_WorldParameters.cs" />
-    <Compile Include="Assets\Scripts\AIPlaceInfoLogic.cs" />
-    <Compile Include="Assets\Scripts\EFT\EDamageType.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\WindowBreakerManager.cs" />
-    <Compile Include="Assets\Scripts\EFT\ECaliber.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\WindowBreaker.cs" />
-    <Compile Include="Assets\Scripts\EFT\Animations\Audio\BipodAudioController.cs" />
-    <Compile Include="Assets\Scripts\EFT\Ballistics\BallisticsCalculator.cs" />
-    <Compile Include="Assets\Scripts\EFT\EnvironmentEffect\IndoorTrigger.cs" />
-    <Compile Include="Assets\Scripts\EFT\Hideout\AreasController.cs" />
-    <Compile Include="Assets\Scripts\BouncingObject.cs" />
-    <Compile Include="Assets\Scripts\LaserBeam.cs" />
-    <Compile Include="Assets\Scripts\EFT\Visual\Dress.cs" />
-    <Compile Include="Assets\Scripts\AlwaysUp.cs" />
-    <Compile Include="Assets\Scripts\MultiFlare.cs" />
-    <Compile Include="Assets\Scripts\MuzzleJet.cs" />
-    <Compile Include="Assets\Scripts\EFT\UI\Screens\UIScreen.cs" />
-    <Compile Include="Assets\Scripts\EFT\Visual\LightFlicker.cs" />
     <Compile Include="Assets\Scripts\UnityStandardAssets\ImageEffects\Tonemapping.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\EExfiltrationStatus.cs" />
-    <Compile Include="Assets\Scripts\ChromaticAberration.cs" />
-    <Compile Include="Assets\Scripts\Undithering.cs" />
-    <Compile Include="Assets\Scripts\EFT\SynchronizableObjects\SynchronizableObject.cs" />
-    <Compile Include="Assets\Scripts\EFT\EnvironmentEffect\EnvironmentType.cs" />
-    <Compile Include="Assets\Scripts\Bsg\GameSettings\GameSetting.cs" />
-    <Compile Include="Assets\Scripts\RainFallDrops.cs" />
-    <Compile Include="Assets\Scripts\JsonType\ELootRarity.cs" />
-    <Compile Include="Assets\Scripts\EFT\InventoryLogic\SightComponent.cs" />
-    <Compile Include="Assets\Scripts\PrismEffects.cs" />
-    <Compile Include="Assets\Scripts\PreviewPivot.cs" />
-    <Compile Include="Assets\Scripts\EFT\InventoryLogic\EItemAttributeId.cs" />
-    <Compile Include="Assets\Scripts\BetterAudio.cs" />
-    <Compile Include="Assets\Scripts\BotZoneEntranceInfo.cs" />
     <Compile Include="Assets\Scripts\Prism\Utils\AOBlurType.cs" />
-    <Compile Include="Assets\Scripts\EFT\Airdrop\AirdropPoint.cs" />
-    <Compile Include="Assets\Scripts\UnspawnPoint.cs" />
-    <Compile Include="Assets\Scripts\EFT\Weather\ERainType.cs" />
-    <Compile Include="Assets\Scripts\BotZoneEntrance.cs" />
-    <Compile Include="Assets\Scripts\BezierSplineTools\BezierControlPointMode.cs" />
-    <Compile Include="Assets\Scripts\CullingObject.cs" />
-    <Compile Include="Assets\Scripts\ScopeZoomHandler.cs" />
-    <Compile Include="Assets\Scripts\TOD_SunParameters.cs" />
-    <Compile Include="Assets\Scripts\ValuesCoefs.cs" />
-    <Compile Include="Assets\Scripts\TOD_ReflectionType.cs" />
-    <Compile Include="Assets\Scripts\TOD_Rays.cs" />
-    <Compile Include="Assets\Scripts\EFT\Weather\ECloudinessType.cs" />
     <Compile Include="Assets\Scripts\Prism\Utils\NoiseType.cs" />
-    <Compile Include="Assets\Scripts\GClass2546.cs" />
-    <Compile Include="Assets\Scripts\EFT\Game\Spawning\ISpawnColliderParams.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\LootableContainersGroup.cs" />
-    <Compile Include="Assets\Scripts\CullingLightObject.cs" />
     <Compile Include="Assets\Scripts\Prism\Utils\SampleCount.cs" />
-    <Compile Include="Assets\Scripts\EFT\Visual\CustomSkin.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\GroupLootPoint.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\LootPoint_LEGACY.cs" />
-    <Compile Include="Assets\Scripts\DisablerCullingObject.cs" />
-    <Compile Include="Assets\Scripts\EFT\RestSettings.cs" />
-    <Compile Include="Assets\Scripts\MoveObjectsToAdditionalPhysSceneMarker.cs" />
-    <Compile Include="Assets\Scripts\TOD_MeshQualityType.cs" />
-    <Compile Include="Assets\Scripts\GClass777.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\BaseRestrictableZone.cs" />
-    <Compile Include="Assets\Scripts\MuzzleSparks.cs" />
-    <Compile Include="Assets\Scripts\AICellData.cs" />
-    <Compile Include="Assets\Scripts\ColliderExtrusion.cs" />
-    <Compile Include="Assets\Scripts\TOD_Animation.cs" />
-    <Compile Include="Assets\Scripts\BipodViewController.cs" />
-    <Compile Include="Assets\Scripts\SimpleSparksAdapter.cs" />
-    <Compile Include="Assets\Scripts\GrassValues.cs" />
-    <Compile Include="Assets\Scripts\TOD_CloudType.cs" />
-    <Compile Include="Assets\Scripts\TOD_ColorRangeType.cs" />
-    <Compile Include="Assets\Scripts\TOD_StarParameters.cs" />
-    <Compile Include="Assets\Scripts\DressItem.cs" />
-    <Compile Include="Assets\Scripts\SpotLightFakeGI.cs" />
-    <Compile Include="Assets\Scripts\EFT\CameraControl\ScopeCameraData.cs" />
-    <Compile Include="Assets\Scripts\CoverPointDefenceInfo.cs" />
-    <Compile Include="Assets\Scripts\AnimationEventSystem\EAnimationEventParamType.cs" />
-    <Compile Include="Assets\Scripts\EFT\CameraControl\OpticSight.cs" />
-    <Compile Include="Assets\Scripts\DeluxeFilmicCurve.cs" />
-    <Compile Include="Assets\Scripts\EFT\Weather\WindController.cs" />
-    <Compile Include="Assets\Scripts\BezierSplineTools\SplineDecorator.cs" />
-    <Compile Include="Assets\Scripts\EFT\Visual\HeadSkin.cs" />
-    <Compile Include="Assets\Scripts\DecalSystem.cs" />
-    <Compile Include="Assets\Scripts\AdvancedLight.cs" />
-    <Compile Include="Assets\Scripts\Bsg\GameSettings\IGameSetting.cs" />
-    <Compile Include="Assets\Scripts\TOD_ColorSpaceType.cs" />
     <Compile Include="Assets\Scripts\UnityStandardAssets\ImageEffects\PostEffectBase.cs" />
-    <Compile Include="Assets\Scripts\PatrolPointType.cs" />
-    <Compile Include="Assets\Scripts\VolumetricLightRenderer.cs" />
-    <Compile Include="Assets\Scripts\EFT\PlayerBody.cs" />
     <Compile Include="Assets\Scripts\Prism\Utils\DoFSamples.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\ESpecificInteractionContext.cs" />
-    <Compile Include="Assets\Scripts\TOD_NightParameters.cs" />
-    <Compile Include="Assets\Scripts\ZoneTriangleData.cs" />
-    <Compile Include="Assets\Scripts\PatrolPoint.cs" />
-    <Compile Include="Assets\Scripts\EFT\Game\Spawning\ActionIfNotEnoughPoints.cs" />
-    <Compile Include="Assets\Scripts\AnimationEventSystem\AnimationEventsEmitter.cs" />
-    <Compile Include="Assets\Scripts\NavMeshDoorLink.cs" />
-    <Compile Include="Assets\Scripts\IPhysicsTrigger.cs" />
-    <Compile Include="Assets\Scripts\TOD_Weather.cs" />
-    <Compile Include="Assets\Scripts\EFT\StreamingAnimatorSystem\StreamingAnimator.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\LootPoint.cs" />
-    <Compile Include="Assets\Scripts\EFT\CameraControl\ScopeReticle.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\BrokenWindowPieceCollider.cs" />
-    <Compile Include="Assets\Scripts\IPhysicsTriggerWithStay.cs" />
-    <Compile Include="Assets\Scripts\WildSpawnType.cs" />
-    <Compile Include="Assets\Scripts\EStateType.cs" />
-    <Compile Include="Assets\Scripts\SerializeableEnumDictionary.cs" />
-    <Compile Include="Assets\Scripts\EFT\Visual\BackpackSkinData.cs" />
-    <Compile Include="Assets\Scripts\Bsg\GameSettings\StateGameSetting.cs" />
-    <Compile Include="Assets\Scripts\ObjectInHandsAnimator.cs" />
-    <Compile Include="Assets\Scripts\RainCondensator.cs" />
-    <Compile Include="Assets\Scripts\BotCellController.cs" />
-    <Compile Include="Assets\Scripts\ClippingRuleChanger.cs" />
-    <Compile Include="Assets\Scripts\EFT\Visual\TorsoSkin.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\Turnable.cs" />
-    <Compile Include="Assets\Scripts\PatrolType.cs" />
-    <Compile Include="Assets\Scripts\StationaryWeaponLink.cs" />
-    <Compile Include="Assets\Scripts\TOD_MoonPositionType.cs" />
-    <Compile Include="Assets\Scripts\BulletSoundPlayersController.cs" />
-    <Compile Include="Assets\Scripts\GClass250.cs" />
-    <Compile Include="Assets\Scripts\WetRenderer.cs" />
-    <Compile Include="Assets\Scripts\EFT\Game\Spawning\SpawnPointMarker.cs" />
-    <Compile Include="Assets\Scripts\SingleFlareController.cs" />
-    <Compile Include="Assets\Scripts\WayPatrolPoints.cs" />
-    <Compile Include="Assets\Scripts\TOD_MoonParameters.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\Switch.cs" />
-    <Compile Include="Assets\Scripts\EnvironmentType.cs" />
-    <Compile Include="Assets\Scripts\TreeInteractivePart.cs" />
-    <Compile Include="Assets\Scripts\TextureDecalsPainter.cs" />
-    <Compile Include="Assets\Scripts\TOD_Time.cs" />
-    <Compile Include="Assets\Scripts\EFT\UI\DragAndDrop\PixelPerfectSpriteScaler.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\MaterialData.cs" />
-    <Compile Include="Assets\Scripts\TOD_Resources.cs" />
-    <Compile Include="Assets\Scripts\VolumetricFog.cs" />
-    <Compile Include="Assets\Scripts\EFT\CameraControl\ScopeData.cs" />
-    <Compile Include="Assets\Scripts\EFT\AssetsManager\AssetPoolObject.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\LampController.cs" />
-    <Compile Include="Assets\Scripts\EFT\SoundBank.cs" />
-    <Compile Include="Assets\Scripts\SceneLights.cs" />
-    <Compile Include="Assets\Scripts\HeatEmitter.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\ExfiltrationPoint.cs" />
-    <Compile Include="Assets\Scripts\EFT\PostEffects\OpticCullingMask.cs" />
-    <Compile Include="Assets\Scripts\StaticLoot.cs" />
-    <Compile Include="Assets\Scripts\UltimateBloom.cs" />
-    <Compile Include="Assets\Scripts\DirectionCalculationType.cs" />
-    <Compile Include="Assets\Scripts\EFT\Visual\FoldableStockView.cs" />
-    <Compile Include="Assets\Scripts\TracersLight.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\WorldInteractiveObject.cs" />
-    <Compile Include="Assets\Scripts\EFT\Visual\HelmetDress.cs" />
-    <Compile Include="Assets\Scripts\FollowerCullingObject.cs" />
-    <Compile Include="Assets\Scripts\EFT\CameraControl\ScopeEffectsData.cs" />
-    <Compile Include="Assets\Scripts\EFT\KnifeCollider.cs" />
-    <Compile Include="Assets\Scripts\AnimationEventSystem\AnimationEventsStateBehaviour.cs" />
-    <Compile Include="Assets\Scripts\EFT\Animations\WeaponMachinery.cs" />
-    <Compile Include="Assets\Scripts\SpreadGroup.cs" />
-    <Compile Include="Assets\Scripts\HeatHazeEmitter.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\BrokenWindowPieceTemplate.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\BarbedWire.cs" />
-    <Compile Include="Assets\Scripts\ThrowGrenadePlace.cs" />
-    <Compile Include="Assets\Scripts\Audio\Data\SurfaceSoundContainers.cs" />
     <Compile Include="Assets\Scripts\Prism\Utils\BloomType.cs" />
-    <Compile Include="Assets\Scripts\WeaponSoundPlayer.cs" />
-    <Compile Include="Assets\Scripts\AnimationEventSystem\AnimationEventsContainer.cs" />
-    <Compile Include="Assets\Scripts\TagBank.cs" />
-    <Compile Include="Assets\Scripts\MultiFlareLight.cs" />
-    <Compile Include="Assets\Scripts\AICell.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\LootableContainerParameters.cs" />
-    <Compile Include="Assets\Scripts\FlyingBulletSoundPlayer.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\BorderZone.cs" />
-    <Compile Include="Assets\Scripts\BaseSoundPlayer.cs" />
-    <Compile Include="Assets\Scripts\JsonType\EDateTime.cs" />
-    <Compile Include="Assets\Scripts\BrokenDoor.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\ExitTriggerSettings.cs" />
-    <Compile Include="Assets\Scripts\BotZone.cs" />
-    <Compile Include="Assets\Scripts\LightningController.cs" />
-    <Compile Include="Assets\Scripts\TOD_Sky.cs" />
-    <Compile Include="Assets\Scripts\EFT\Game\Spawning\SpawnPoint.cs" />
     <Compile Include="Assets\Scripts\UnityStandardAssets\ImageEffects\Fisheye.cs" />
-    <Compile Include="Assets\Scripts\EFT\Visual\HeadSkinData.cs" />
-    <Compile Include="Assets\Scripts\TOD_CloudQualityType.cs" />
-    <Compile Include="Assets\Scripts\DoorHandle.cs" />
-    <Compile Include="Assets\Scripts\NavMeshCutGroup.cs" />
-    <Compile Include="Assets\Scripts\TOD_CloudParameters.cs" />
-    <Compile Include="Assets\Scripts\EFT\Game\Spawning\ISpawnPoint.cs" />
-    <Compile Include="Assets\Scripts\EFT\InventoryLogic\LightComponent.cs" />
-    <Compile Include="Assets\Scripts\WeaponPrefab.cs" />
-    <Compile Include="Assets\Scripts\Diz\Binding\IUpdatable.cs" />
-    <Compile Include="Assets\Scripts\GClass728.cs" />
-    <Compile Include="Assets\Scripts\EFT\ItemGameSounds\ItemDropSurfaceSet.cs" />
-    <Compile Include="Assets\Scripts\MaskDescription.cs" />
-    <Compile Include="Assets\Scripts\Bsg\CameraEffects\NightVision.cs" />
-    <Compile Include="Assets\Scripts\EFT\BeltDetachablePartSpawner.cs" />
-    <Compile Include="Assets\Scripts\EFT\ParticleIntensityFromAnimator.cs" />
-    <Compile Include="Assets\Scripts\EFT\EnvironmentEffect\EnvironmentSwitcherTrigger.cs" />
-    <Compile Include="Assets\Scripts\RainSplashController.cs" />
-    <Compile Include="Assets\Scripts\BotZoneNavMeshCutter.cs" />
-    <Compile Include="Assets\Scripts\ProFlareAtlas.cs" />
-    <Compile Include="Assets\Scripts\EFT\Visual\VestSkinData.cs" />
-    <Compile Include="Assets\Scripts\ETagStatus.cs" />
-    <Compile Include="Assets\Scripts\EFT\WeaponSounds.cs" />
-    <Compile Include="Assets\Scripts\CustomGlobalFog.cs" />
-    <Compile Include="Assets\Scripts\Noise.cs" />
-    <Compile Include="Assets\Scripts\RenderQueue.cs" />
-    <Compile Include="Assets\Scripts\CoverPointCreatorPreset.cs" />
-    <Compile Include="Assets\Scripts\EFT\CameraControl\ScopeThermalVisionData.cs" />
-    <Compile Include="Assets\Scripts\DepthSize.cs" />
-    <Compile Include="Assets\Scripts\TacticalComboVisualController.cs" />
-    <Compile Include="Assets\Scripts\LevelSettings.cs" />
-    <Compile Include="Assets\Scripts\TOD_ReflectionParameters.cs" />
-    <Compile Include="Assets\Scripts\BetterSource.cs" />
-    <Compile Include="Assets\Scripts\Chain.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\EExfiltrationType.cs" />
-    <Compile Include="Assets\Scripts\ModPlacer.cs" />
-    <Compile Include="Assets\Scripts\EnvironmentManagerBase.cs" />
-    <Compile Include="Assets\Scripts\EFT\Visual\IkLight.cs" />
-    <Compile Include="Assets\Scripts\GAttribute13.cs" />
-    <Compile Include="Assets\Scripts\ClassVector3.cs" />
-    <Compile Include="Assets\Scripts\BotPointOfInterest.cs" />
-    <Compile Include="Assets\Scripts\StuckFPSUtilities.cs" />
-    <Compile Include="Assets\Scripts\EFT\NetworkPackets\EHitSpecial.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\LootPointParameters.cs" />
-    <Compile Include="Assets\Scripts\WeaponAnimationSpeedControllerClass.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\LootPointViewer.cs" />
-    <Compile Include="Assets\Scripts\LootPointsGroup.cs" />
-    <Compile Include="Assets\Scripts\EFT\ItemGameSounds\ItemDropSounds.cs" />
-    <Compile Include="Assets\Scripts\AnimationEventSystem\EEventConditionModes.cs" />
-    <Compile Include="Assets\Scripts\EFT\UI\DragAndDrop\TemplatedGridsView.cs" />
     <Compile Include="Assets\Scripts\Prism\Utils\TonemapType.cs" />
-    <Compile Include="Assets\Scripts\AmbientLight.cs" />
-    <Compile Include="Assets\Scripts\EFT\SpeedTree\TreeWind.cs" />
-    <Compile Include="Assets\Scripts\AnimatorPose.cs" />
-    <Compile Include="Assets\Scripts\PixelationUtilities.cs" />
-    <Compile Include="Assets\Scripts\Bsg\GameSettings\ListGameSetting.cs" />
-    <Compile Include="Assets\Scripts\EFT\Visual\BackpackSkin.cs" />
-    <Compile Include="Assets\Scripts\ThermalVisionUtilities.cs" />
-    <Compile Include="Assets\Scripts\TOD_AmbientParameters.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\TreeInteractive.cs" />
-    <Compile Include="Assets\Scripts\EFT\IAudioClipContainer.cs" />
-    <Compile Include="Assets\Scripts\TransformLinks.cs" />
-    <Compile Include="Assets\Scripts\EFT\Weather\WeatherController.cs" />
-    <Compile Include="Assets\Scripts\EFT\Ballistics\BallisticCollider.cs" />
     <Compile Include="Assets\Scripts\Custom\Item Preview\ItemPreview.cs" />
-    <Compile Include="Assets\Scripts\EFT\BufferZone\BufferZoneContainer.cs" />
-    <Compile Include="Assets\Scripts\AnimationEventSystem\EEventConditionParamTypes.cs" />
-    <Compile Include="Assets\Scripts\MgBelt.cs" />
-    <Compile Include="Assets\Scripts\CollimatorSight.cs" />
-    <Compile Include="Assets\Scripts\RainController.cs" />
-    <Compile Include="Assets\Scripts\ParticleSystemAdapter.cs" />
-    <Compile Include="Assets\Scripts\GameObjectsToggleByDistance.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\LootableContainer.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\ELootableContainerSpawnType.cs" />
-    <Compile Include="Assets\Scripts\BaseLight.cs" />
-    <Compile Include="Assets\Scripts\GClass2705.cs" />
-    <Compile Include="Assets\Scripts\TracerController.cs" />
-    <Compile Include="Assets\Scripts\EFT\Visual\SkinDress.cs" />
-    <Compile Include="Assets\Scripts\PointWithNeighborType.cs" />
-    <Compile Include="Assets\Scripts\EFT\Visual\GunShadowDisabler.cs" />
-    <Compile Include="Assets\Scripts\EFT\AssetsManager\AmmoPoolObject.cs" />
-    <Compile Include="Assets\Scripts\RippleController.cs" />
-    <Compile Include="Assets\Scripts\MuzzleManager.cs" />
-    <Compile Include="Assets\Scripts\EPhraseTrigger.cs" />
-    <Compile Include="Assets\Scripts\WayPatrolData.cs" />
-    <Compile Include="Assets\Scripts\TOD_FogParameters.cs" />
-    <Compile Include="Assets\Scripts\EFT\Game\Spawning\SpawnPointParams.cs" />
-    <Compile Include="Assets\Scripts\SnowFlakes.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\ERequirementState.cs" />
-    <Compile Include="Assets\Scripts\TracerSystem.cs" />
-    <Compile Include="Assets\Scripts\TOD_Components.cs" />
-    <Compile Include="Assets\Scripts\WeightedLootPointSpawnPosition.cs" />
-    <Compile Include="Assets\Scripts\BezierSplineTools\BezierCurve.cs" />
-    <Compile Include="Assets\Scripts\EFT\Voice.cs" />
-    <Compile Include="Assets\Scripts\Diz\Skinning\AbstractSkin.cs" />
-    <Compile Include="Assets\Scripts\EFT\EnvironmentEffect\TriggerGroup.cs" />
-    <Compile Include="Assets\Scripts\BulletClass.cs" />
-    <Compile Include="Assets\Scripts\LocationScene.cs" />
-    <Compile Include="Assets\Scripts\EFT\CameraControl\PlayerCameraController.cs" />
-    <Compile Include="Assets\Scripts\TOD_ImageEffect.cs" />
-    <Compile Include="Assets\Scripts\EFT\CameraControl\ScopeNightVisionData.cs" />
-    <Compile Include="Assets\Scripts\EFT\InventoryLogic\Item.cs" />
-    <Compile Include="Assets\Scripts\GripPose.cs" />
-    <Compile Include="Assets\Scripts\SimpleSparksRenderer.cs" />
-    <Compile Include="Assets\Scripts\BezierSplineTools\SplineWalkerMode.cs" />
-    <Compile Include="Assets\Scripts\GClass2706.cs" />
-    <Compile Include="Assets\Scripts\OnRenderObjectConnector.cs" />
-    <Compile Include="Assets\Scripts\CoverLevel.cs" />
-    <Compile Include="Assets\Scripts\EFT\LocationExportInfo.cs" />
-    <Compile Include="Assets\Scripts\Bsg\GameSettings\EquatableGameSetting.cs" />
-    <Compile Include="Assets\Scripts\EFT\AssetsManager\WeaponModPoolObject.cs" />
-    <Compile Include="Assets\Scripts\EFT\Visual\Flicker.cs" />
-    <Compile Include="Assets\Scripts\MuzzleFume.cs" />
-    <Compile Include="Assets\Scripts\BotTiltType.cs" />
     <Compile Include="Assets\Scripts\Prism\Utils\PrismPresetType.cs" />
-    <Compile Include="Assets\Scripts\CloudsController.cs" />
-    <Compile Include="Assets\Scripts\Diz\Binding\IBindable.cs" />
-    <Compile Include="Assets\Scripts\EFT\InventoryLogic\EquipmentSlot.cs" />
-    <Compile Include="Assets\Scripts\EClippingCustoms.cs" />
     <Compile Include="Assets\Scripts\DefaultNamespace\LayerWeightStateController.cs" />
-    <Compile Include="Assets\Scripts\EFT\CameraControl\CameraLodBiasController.cs" />
-    <Compile Include="Assets\Scripts\MuzzleEffect.cs" />
-    <Compile Include="Assets\Scripts\GrenadeSettings.cs" />
-    <Compile Include="Assets\Scripts\BaseBallistic.cs" />
-    <Compile Include="Assets\Scripts\AutoFoldableSight.cs" />
-    <Compile Include="Assets\Scripts\ECoverPointSpecial.cs" />
-    <Compile Include="Assets\Scripts\BotZoneManualInfo.cs" />
-    <Compile Include="Assets\Scripts\EFT\Game\Spawning\SpawnSphereParams.cs" />
-    <Compile Include="Assets\Scripts\LookDirections.cs" />
     <Compile Include="Assets\Scripts\Prism\Utils\AberrationType.cs" />
-    <Compile Include="Assets\Scripts\EFT\Shell.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\EDoorState.cs" />
-    <Compile Include="Assets\Scripts\TOD_StarsPositionType.cs" />
-    <Compile Include="Assets\Scripts\EFT\EnvironmentVariety.cs" />
-    <Compile Include="Assets\Scripts\MagVisualController.cs" />
-    <Compile Include="Assets\Scripts\AnimationEventSystem\AnimationEventsSequenceData.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\Trunk.cs" />
-    <Compile Include="Assets\Scripts\EFT\SynchronizableObjects\SynchronizableObjectType.cs" />
-    <Compile Include="Assets\Scripts\TOD_Camera.cs" />
-    <Compile Include="Assets\Scripts\AnimationEventSystem\AnimatorControllerStaticData.cs" />
-    <Compile Include="Assets\Scripts\EFT\Game\Spawning\ISpawnPointCollider.cs" />
-    <Compile Include="Assets\Scripts\GrassTrampler.cs" />
-    <Compile Include="Assets\Scripts\EFT\EPointOfView.cs" />
-    <Compile Include="Assets\Scripts\EFT\InventoryLogic\ESmoothScopeState.cs" />
-    <Compile Include="Assets\Scripts\FirearmsAnimator.cs" />
-    <Compile Include="Assets\Scripts\GClass256.cs" />
-    <Compile Include="Assets\Scripts\DepthPhotograper.cs" />
-    <Compile Include="Assets\Scripts\EFT\Game\Spawning\ESpawnCategoryMask.cs" />
-    <Compile Include="Assets\Scripts\EFT\Visual\VestSkin.cs" />
-    <Compile Include="Assets\Scripts\MuzzleSmoke.cs" />
-    <Compile Include="Assets\Scripts\CustomNavigationPoint.cs" />
-    <Compile Include="Assets\Scripts\EFT\Weather\EFogType.cs" />
-    <Compile Include="Assets\Scripts\CC_Base.cs" />
-    <Compile Include="Assets\Scripts\EFT\Visual\ArmBandView.cs" />
-    <Compile Include="Assets\Scripts\EFT\Ballistics\MaterialType.cs" />
-    <Compile Include="Assets\Scripts\ArmorHitSoundPlayer.cs" />
-    <Compile Include="Assets\Scripts\PatrolWay.cs" />
-    <Compile Include="Assets\Scripts\ScopePrefabCache.cs" />
-    <Compile Include="Assets\Scripts\EFT\EPlayerPose.cs" />
-    <Compile Include="Assets\Scripts\EPlayerState.cs" />
-    <Compile Include="Assets\Scripts\EFT\EnvironmentEffect\EnvironmentManager.cs" />
-    <Compile Include="Assets\Scripts\GrenadePrefab.cs" />
-    <Compile Include="Assets\Scripts\LActionState.cs" />
-    <Compile Include="Assets\Scripts\UnityExtensions.cs" />
-    <Compile Include="Assets\Scripts\TriangleData.cs" />
-    <Compile Include="Assets\Scripts\PointWithLookSides.cs" />
-    <Compile Include="Assets\Scripts\AReserveWayAction.cs" />
-    <Compile Include="Assets\Scripts\TOD_Scattering.cs" />
-    <Compile Include="Assets\Scripts\EFT\EPlayerSideMask.cs" />
-    <Compile Include="Assets\Scripts\EFT\Weather\WiresController.cs" />
-    <Compile Include="Assets\Scripts\AnimationEventSystem\EventCondition.cs" />
-    <Compile Include="Assets\Scripts\EFT\DistanceVarity.cs" />
-    <Compile Include="Assets\Scripts\EFT\NetworkPackets\EHandsTypePacket.cs" />
-    <Compile Include="Assets\Scripts\EFT\InventoryLogic\IAdjustableOpticData.cs" />
-    <Compile Include="Assets\Scripts\Diz\Skinning\PluggableBone.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\WindowBreakingConfig.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\InteractableObject.cs" />
-    <Compile Include="Assets\Scripts\EFT\MovingPlatforms\MovingPlatform.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\LootPointData.cs" />
-    <Compile Include="Assets\Scripts\EFT\InventoryLogic\Mod.cs" />
-    <Compile Include="Assets\Scripts\EFT\BeltDetachablePart.cs" />
-    <Compile Include="Assets\Scripts\FirearmsEffects.cs" />
     <Compile Include="Assets\Scripts\Systems\Effects\Effects.cs" />
-    <Compile Include="Assets\Scripts\BezierSplineTools\Line.cs" />
-    <Compile Include="Assets\Scripts\EFT\Visual\LoddedSkin.cs" />
-    <Compile Include="Assets\Scripts\TriangleCache.cs" />
-    <Compile Include="Assets\Scripts\AnimationEventSystem\LActionSetup.cs" />
-    <Compile Include="Assets\Scripts\EAutoFoldableSightMode.cs" />
-    <Compile Include="Assets\Scripts\CommonAssets\Scripts\Audio\ELoudnessType.cs" />
-    <Compile Include="Assets\Scripts\GrenadeEmission.cs" />
-    <Compile Include="Assets\Scripts\EFT\Weather\ToDController.cs" />
-    <Compile Include="Assets\Scripts\FlareForEffects.cs" />
-    <Compile Include="Assets\Scripts\NavMeshCutElement.cs" />
-    <Compile Include="Assets\Scripts\TOD_AtmosphereParameters.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\MaterialColor.cs" />
-    <Compile Include="Assets\Scripts\Diz\Skinning\Skeleton.cs" />
-    <Compile Include="Assets\Scripts\Tracers.cs" />
-    <Compile Include="Assets\Scripts\EffectsPrewarm.cs" />
-    <Compile Include="Assets\Scripts\EFT\Weather\EWindSpeed.cs" />
-    <Compile Include="Assets\Scripts\EFT\BaseMovementState.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\ExfiltrationRequirement.cs" />
-    <Compile Include="Assets\Scripts\EFT\InventoryLogic\Slot.cs" />
     <Compile Include="Assets\Scripts\Prism\Utils\PrismPreset.cs" />
-    <Compile Include="Assets\Scripts\TaggedClip.cs" />
-    <Compile Include="Assets\Scripts\EFT\Weather\EWeatherType.cs" />
-    <Compile Include="Assets\Scripts\AnimationEventSystem\EventsCollection.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\MaterialEmission.cs" />
-    <Compile Include="Assets\Scripts\EFT\Visual\VestlikeArmor.cs" />
     <Compile Include="Assets\Scripts\UnityStandardAssets\ImageEffects\BloomOptimized.cs" />
-    <Compile Include="Assets\Scripts\TOD_AmbientType.cs" />
-    <Compile Include="Assets\Scripts\GAttribute7.cs" />
-    <Compile Include="Assets\Scripts\MotionBlurUtilities.cs" />
-    <Compile Include="Assets\Scripts\NavTriangle.cs" />
-    <Compile Include="Assets\Scripts\VolumetricLight.cs" />
-    <Compile Include="Assets\Scripts\EFT\NetworkPackets\SyncPositionReason.cs" />
-    <Compile Include="Assets\Scripts\EFT\EUpdateQueue.cs" />
-    <Compile Include="Assets\Scripts\TOD_DayParameters.cs" />
-    <Compile Include="Assets\Scripts\Emitter.cs" />
-    <Compile Include="Assets\Scripts\BotZonePatrolData.cs" />
-    <Compile Include="Assets\Scripts\GClass773.cs" />
-    <Compile Include="Assets\Scripts\TOD_WeatherType.cs" />
-    <Compile Include="Assets\Scripts\ScopeMaskRenderer.cs" />
-    <Compile Include="Assets\Scripts\AnimationEventSystem\AnimationEvent.cs" />
-    <Compile Include="Assets\Scripts\TOD_FogType.cs" />
-    <Compile Include="Assets\Scripts\PlayerStateContainer.cs" />
-    <Compile Include="Assets\Scripts\NavPoint.cs" />
-    <Compile Include="Assets\Scripts\EFT\Player.cs" />
-    <Compile Include="Assets\Scripts\UsableHandsPrefab.cs" />
-    <Compile Include="Assets\Scripts\BulletSoundPlayer.cs" />
-    <Compile Include="Assets\Scripts\SmoothLookAt.cs" />
-    <Compile Include="Assets\Scripts\SonicBulletSoundPlayer.cs" />
-    <Compile Include="Assets\Scripts\EFT\InventoryLogic\ThermalVisionComponent.cs" />
-    <Compile Include="Assets\Scripts\TOD_CycleParameters.cs" />
-    <Compile Include="Assets\Scripts\TOD_LightParameters.cs" />
-    <Compile Include="Assets\Scripts\EFT\EMovementDirection.cs" />
-    <Compile Include="Assets\Scripts\EFT\Weather\IWeatherCurve.cs" />
-    <Compile Include="Assets\Scripts\EFT\AudioMultipleClipContainer.cs" />
-    <Compile Include="Assets\Scripts\CommonAssets\Scripts\AlternativePropBone.cs" />
-    <Compile Include="Assets\Scripts\EFT\Visual\LegsView.cs" />
-    <Compile Include="Assets\Scripts\AmbientHighlight.cs" />
     <Compile Include="Assets\Scripts\Systems\Effects\EffectsCommutator.cs" />
-    <Compile Include="Assets\Scripts\BezierSplineTools\SplineWalker.cs" />
-    <Compile Include="Assets\Scripts\Bsg\CameraEffects\TextureMask.cs" />
-    <Compile Include="Assets\Scripts\ThermalVision.cs" />
-    <Compile Include="Assets\Scripts\AnimationEventSystem\AnimationEventParameter.cs" />
-    <Compile Include="Assets\Scripts\RundomRange.cs" />
-    <Compile Include="Assets\Scripts\SightModVisualControllers.cs" />
-    <Compile Include="Assets\Scripts\EFT\EAmmoBeltSpawnDirection.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\LootPointMode.cs" />
-    <Compile Include="Assets\Scripts\RampTexPalletteConnector.cs" />
-    <Compile Include="Assets\Scripts\IntFloat.cs" />
-    <Compile Include="Assets\Scripts\DynamicDeferredDecalRenderer.cs" />
-    <Compile Include="Assets\Scripts\GAttribute6.cs" />
-    <Compile Include="Assets\Scripts\EFT\CameraControl\ScopeSmoothCameraData.cs" />
-    <Compile Include="Assets\Scripts\EFT\Particles\BasicParticleSystemMediator.cs" />
-    <Compile Include="Assets\Scripts\EFT\UI\DragAndDrop\ContainedGridsView.cs" />
-    <Compile Include="Assets\Scripts\BezierSplineTools\BezierSpline.cs" />
-    <Compile Include="Assets\Scripts\BotZoneStationaryWeapons.cs" />
-    <Compile Include="Assets\Scripts\DamageInfo.cs" />
-    <Compile Include="Assets\Scripts\ReserveWayResult.cs" />
-    <Compile Include="Assets\Scripts\DistortRenderer.cs" />
-    <Compile Include="Assets\Scripts\PhysicsTriggerHandler.cs" />
-    <Compile Include="Assets\Scripts\EFT\Game\Hideout\LoadingScreen.cs" />
-    <Compile Include="Assets\Scripts\EFT\InventoryLogic\FoldableComponent.cs" />
-    <Compile Include="Assets\Scripts\BotLocationModifier.cs" />
-    <Compile Include="Assets\Scripts\DisablerCullingObjectBase.cs" />
-    <Compile Include="Assets\Scripts\CoverPointPlaceSerializable.cs" />
-    <Compile Include="Assets\Scripts\RainScreenDrops.cs" />
-    <Compile Include="Assets\Scripts\Diz\Skinning\Skin.cs" />
-    <Compile Include="Assets\Scripts\GlitchUtilities.cs" />
-    <Compile Include="Assets\Scripts\EFT\Interactive\Door.cs" />
-    <Compile Include="Assets\Scripts\EFT\Hideout\e.cs" />
-    <Compile Include="Assets\Scripts\EFT\Visual\HoodedDress.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shaders\p0_Cutout_Bumped Diffuse Emissive.shader" />
@@ -1002,24 +548,380 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.43f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Coffee.SoftMaskForUGUI">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Coffee.SoftMaskForUGUI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DissonanceVoip">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\DissonanceVoip.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.NVIDIAModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.NVIDIAModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Accessibility">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Accessibility.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="AnimationSystem.Types">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\AnimationSystem.Types.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sirenix.Serialization">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Sirenix.Serialization.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="AssetsTools.NET">
       <HintPath>Assets\Plugins\AssetsTools.NET.3.0.0\lib\net40\AssetsTools.NET.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.ProBuilder.Csg">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.ProBuilder.Csg.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.InputModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\NLog.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mono.WebBrowser">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Mono.WebBrowser.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Cinemachine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.AudioModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.UnityConverters">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Newtonsoft.Json.UnityConverters.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Formats.Fbx.Runtime">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.Formats.Fbx.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DOTween.Modules">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\DOTween.Modules.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.Poly2Tri">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.ProBuilder.Poly2Tri.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ContentLoadModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.ContentLoadModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.DirectorModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.DirectorModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.KdTree">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.ProBuilder.KdTree.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="uLipSync.Runtime">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\uLipSync.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Recorder">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.Recorder.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="bsg.console.core">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\bsg.console.core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.DSPGraphModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.DSPGraphModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AndroidJNIModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.AndroidJNIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CommonExtensions">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\CommonExtensions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="AmplifyMotion">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\AmplifyMotion.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.GIModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.GIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Profiling.Core">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.Profiling.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.AssetBundleModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.AnimationModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterInputModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.ClusterInputModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CrashReportingModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.CrashReportingModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.PlayableGraphVisualizer">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.PlayableGraphVisualizer.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.Stl">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.ProBuilder.Stl.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FbxBuildTestAssets">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\FbxBuildTestAssets.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Collections.LowLevel.ILSupport">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="bsg.componentace.compression.libs.zlib">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\bsg.componentace.compression.libs.zlib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="BSG.Unity.Wires">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\BSG.Unity.Wires.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.ImageConversionModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Tarkov.Assembly">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Tarkov.Assembly.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.LocalizationModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.LocalizationModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Microsoft.CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.ScriptableBuildPipeline">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.ScriptableBuildPipeline.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sirenix.OdinInspector.Attributes">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Sirenix.OdinInspector.Attributes.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ItemComponent.Types">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\ItemComponent.Types.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ClothModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.ClothModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.ProBuilder">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.ProBuilder.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.GridModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.GridModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Novell.Directory.Ldap">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Novell.Directory.Ldap.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="kcp">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\kcp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Collections">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.Collections.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Mono.Security.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="AnimationSystem.Recording">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\AnimationSystem.Recording.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.JSONSerializeModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="com.nvidia.reflex.Runtime">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\com.nvidia.reflex.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.Physics2DModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.PhysicsModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Mono.Cecil.Rocks">
-      <HintPath>Assets\Plugins\Mono.Cecil.Rocks.dll</HintPath>
+      <HintPath>Assets\Plugins\Mono.Cecil\Mono.Cecil.Rocks.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\DOTween.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JBooth.MicroSplat.Core">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\JBooth.MicroSplat.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.PerformanceReportingModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.PerformanceReportingModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Meta.XR.Audio">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Meta.XR.Audio.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.HotReloadModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.HotReloadModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FilesChecker">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\FilesChecker.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AIModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.AIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sirenix.Utilities">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Sirenix.Utilities.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="bsg.microsoft.extensions.objectpool">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\bsg.microsoft.extensions.objectpool.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.GameCenterModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.GameCenterModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="LibraryLoaderUtility">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\LibraryLoaderUtility.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mono.Data.Sqlite">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Mono.Data.Sqlite.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Tarkov.Assembly-firstpass">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Tarkov.Assembly-firstpass.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.ParticleSystemModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="where-allocations">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\where-allocations.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AccessibilityModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.AccessibilityModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\websocket-sharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="bsg.system.buffers">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\bsg.system.buffers.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.MemoryProfiler">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.MemoryProfiler.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Recorder.Base">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.Recorder.Base.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ItemTemplate.Types">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\ItemTemplate.Types.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sirenix.Serialization.Config">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Sirenix.Serialization.Config.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Cecil.Mdb">
-      <HintPath>Assets\Plugins\Mono.Cecil.Mdb.dll</HintPath>
+      <HintPath>Assets\Plugins\Mono.Cecil\Mono.Cecil.Mdb.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mono.Posix">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Mono.Posix.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Comfort.Unity">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Comfort.Unity.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Cecil">
-      <HintPath>Assets\Plugins\Mono.Cecil.dll</HintPath>
+      <HintPath>Assets\Plugins\Mono.Cecil\Mono.Cecil.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ARModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.ARModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterRendererModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.ClusterRendererModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Cecil.Pdb">
-      <HintPath>Assets\Plugins\Mono.Cecil.Pdb.dll</HintPath>
+      <HintPath>Assets\Plugins\Mono.Cecil\Mono.Cecil.Pdb.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Comfort">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Comfort.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">

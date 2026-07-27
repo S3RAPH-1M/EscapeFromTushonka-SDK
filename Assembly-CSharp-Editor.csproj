@@ -64,6 +64,7 @@
     <Compile Include="Assets\Editor\Groovey\AutoTransformLinks.cs" />
     <Compile Include="Assets\Scripts\Custom\Item Preview\Editor\ItemPreviewWindow.cs" />
     <Compile Include="Assets\Editor\Groovey\GrooveyGUIToolbox.cs" />
+    <Compile Include="Assets\Editor\SDK2\TarkovAssemblyExtractorWindow.cs" />
     <Compile Include="Assets\Editor\Groovey\CustomRigLayoutEditor.cs" />
     <Compile Include="Assets\Editor\Groovey\GameReadyDressObjectCreator.cs" />
     <Compile Include="Assets\Editor\Groovey\TagbankVoiceCreator.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Assets\Editor\Groovey\GameReadyLootObjectCreator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Editor\SDK2\dnlib.dll" />
     <None Include="Assets\Packages\Custom Post Processing\PostProcessing\Shaders\Editor\CurveGrid.shader" />
     <None Include="Assets\Packages\Custom Post Processing\PostProcessing\Shaders\Editor\Trackball.shader" />
     <None Include="Assets\Packages\Custom Post Processing\PostProcessing\Shaders\Editor\ConvertToLog.shader" />
@@ -425,8 +427,116 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.43f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Coffee.SoftMaskForUGUI">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Coffee.SoftMaskForUGUI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DissonanceVoip">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\DissonanceVoip.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.NVIDIAModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.NVIDIAModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Accessibility">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Accessibility.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="AnimationSystem.Types">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\AnimationSystem.Types.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sirenix.Serialization">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Sirenix.Serialization.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="AssetsTools.NET">
       <HintPath>Assets\Plugins\AssetsTools.NET.3.0.0\lib\net40\AssetsTools.NET.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.Csg">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.ProBuilder.Csg.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.InputModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\NLog.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mono.WebBrowser">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Mono.WebBrowser.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Cinemachine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="dnlib">
+      <HintPath>Assets\Editor\SDK2\dnlib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.AudioModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.UnityConverters">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Newtonsoft.Json.UnityConverters.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Formats.Fbx.Runtime">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.Formats.Fbx.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DOTween.Modules">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\DOTween.Modules.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.Poly2Tri">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.ProBuilder.Poly2Tri.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ContentLoadModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.ContentLoadModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.DirectorModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.DirectorModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.KdTree">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.ProBuilder.KdTree.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="uLipSync.Runtime">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\uLipSync.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Recorder">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.Recorder.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="bsg.console.core">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\bsg.console.core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.DSPGraphModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.DSPGraphModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AndroidJNIModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.AndroidJNIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="unityplastic">
@@ -437,28 +547,280 @@
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.4.4\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="CommonExtensions">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\CommonExtensions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="AmplifyMotion">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\AmplifyMotion.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.GIModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.GIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Profiling.Core">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.Profiling.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.AssetBundleModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.AnimationModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterInputModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.ClusterInputModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CrashReportingModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.CrashReportingModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.PlayableGraphVisualizer">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.PlayableGraphVisualizer.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.Stl">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.ProBuilder.Stl.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FbxBuildTestAssets">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\FbxBuildTestAssets.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Collections.LowLevel.ILSupport">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.4.4\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="bsg.componentace.compression.libs.zlib">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\bsg.componentace.compression.libs.zlib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="BSG.Unity.Wires">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\BSG.Unity.Wires.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.ImageConversionModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Tarkov.Assembly">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Tarkov.Assembly.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.LocalizationModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.LocalizationModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Microsoft.CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.4.4\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.ScriptableBuildPipeline">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.ScriptableBuildPipeline.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sirenix.OdinInspector.Attributes">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Sirenix.OdinInspector.Attributes.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ItemComponent.Types">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\ItemComponent.Types.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ClothModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.ClothModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.ProBuilder">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.ProBuilder.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.GridModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.GridModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Novell.Directory.Ldap">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Novell.Directory.Ldap.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="kcp">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\kcp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Collections">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.Collections.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Mono.Security.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="AnimationSystem.Recording">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\AnimationSystem.Recording.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.JSONSerializeModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="com.nvidia.reflex.Runtime">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\com.nvidia.reflex.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.Physics2DModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.PhysicsModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Mono.Cecil.Rocks">
-      <HintPath>Assets\Plugins\Mono.Cecil.Rocks.dll</HintPath>
+      <HintPath>Assets\Plugins\Mono.Cecil\Mono.Cecil.Rocks.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\DOTween.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JBooth.MicroSplat.Core">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\JBooth.MicroSplat.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.PerformanceReportingModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.PerformanceReportingModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Meta.XR.Audio">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Meta.XR.Audio.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.HotReloadModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.HotReloadModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FilesChecker">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\FilesChecker.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AIModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.AIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sirenix.Utilities">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Sirenix.Utilities.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="bsg.microsoft.extensions.objectpool">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\bsg.microsoft.extensions.objectpool.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.GameCenterModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.GameCenterModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="LibraryLoaderUtility">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\LibraryLoaderUtility.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mono.Data.Sqlite">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Mono.Data.Sqlite.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Tarkov.Assembly-firstpass">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Tarkov.Assembly-firstpass.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.ParticleSystemModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="where-allocations">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\where-allocations.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AccessibilityModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.AccessibilityModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\websocket-sharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="bsg.system.buffers">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\bsg.system.buffers.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.MemoryProfiler">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.MemoryProfiler.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Recorder.Base">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Unity.Recorder.Base.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ItemTemplate.Types">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\ItemTemplate.Types.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sirenix.Serialization.Config">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Sirenix.Serialization.Config.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Cecil.Mdb">
-      <HintPath>Assets\Plugins\Mono.Cecil.Mdb.dll</HintPath>
+      <HintPath>Assets\Plugins\Mono.Cecil\Mono.Cecil.Mdb.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mono.Posix">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Mono.Posix.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Comfort.Unity">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Comfort.Unity.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Cecil">
-      <HintPath>Assets\Plugins\Mono.Cecil.dll</HintPath>
+      <HintPath>Assets\Plugins\Mono.Cecil\Mono.Cecil.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ARModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.ARModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterRendererModule">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\UnityEngine.ClusterRendererModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Cecil.Pdb">
-      <HintPath>Assets\Plugins\Mono.Cecil.Pdb.dll</HintPath>
+      <HintPath>Assets\Plugins\Mono.Cecil\Mono.Cecil.Pdb.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Comfort">
+      <HintPath>Assets\Plugins\Tarkov.Assemblies\Comfort.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="nunit.framework">

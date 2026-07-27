@@ -11,6 +11,7 @@ namespace AssetBundleBrowser
     internal static class AssetBundleInspectorBuildButton
     {
         private const string k_FooterName = "AssetBundleBuildFooter_TarkovSDK";
+        private const string k_IncludeDepsPrefKey = "AssetBundleBrowser.InspectorBuildButton.IncludeDeps";
         private const double k_CheckIntervalSeconds = 0.5;
 
         private static readonly Type s_InspectorWindowType;
@@ -84,11 +85,28 @@ namespace AssetBundleBrowser
                 ? bundleName
                 : $"{bundleName}.{variant}";
 
-            GUIContent content = new GUIContent(
+            GUIContent buttonContent = new GUIContent(
                 $"Build AssetBundle: {fullBundleName}",
                 "Build only this AssetBundle using the AssetBundle Browser Build tab's current settings.");
 
-            if (GUILayout.Button(content))
+            GUIContent toggleContent = new GUIContent(
+                "Build with Dependencies",
+                "Also build every AssetBundle this one depends on (recursive).");
+
+            bool includeDeps = EditorPrefs.GetBool(k_IncludeDepsPrefKey, false);
+
+            EditorGUILayout.BeginHorizontal();
+            bool clicked = GUILayout.Button(buttonContent);
+            bool newIncludeDeps = GUILayout.Toggle(includeDeps, toggleContent, GUILayout.Width(180));
+            EditorGUILayout.EndHorizontal();
+
+            if (newIncludeDeps != includeDeps)
+            {
+                EditorPrefs.SetBool(k_IncludeDepsPrefKey, newIncludeDeps);
+                includeDeps = newIncludeDeps;
+            }
+
+            if (clicked)
             {
                 AssetBundleBrowserMain browser = AssetBundleBrowserMain.instance;
                 if (browser == null || browser.m_BuildTab == null)
@@ -96,7 +114,7 @@ namespace AssetBundleBrowser
                     Debug.LogError("AssetBundle Browser is not available; cannot build.");
                     return;
                 }
-                browser.m_BuildTab.BuildSingleBundle(fullBundleName);
+                browser.m_BuildTab.BuildSingleBundle(fullBundleName, includeDeps);
             }
         }
     }

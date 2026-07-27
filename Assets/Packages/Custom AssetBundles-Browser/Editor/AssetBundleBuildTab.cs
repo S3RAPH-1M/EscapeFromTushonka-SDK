@@ -381,16 +381,50 @@ namespace AssetBundleBrowser
 
         internal void BuildSingleBundle(string assetBundleName)
         {
+            BuildSingleBundle(assetBundleName, includeDependencies: false);
+        }
+
+        internal void BuildSingleBundle(string assetBundleName, bool includeDependencies)
+        {
             if (string.IsNullOrEmpty(assetBundleName))
             {
                 Debug.LogError("BuildSingleBundle: bundle name is empty.");
                 return;
             }
 
-            string[] assetPaths = AssetDatabase.GetAssetPathsFromAssetBundle(assetBundleName);
-            if (assetPaths == null || assetPaths.Length == 0)
+            List<string> bundleNames = new List<string> { assetBundleName };
+            if (includeDependencies)
             {
-                Debug.LogError($"BuildSingleBundle: AssetBundle '{assetBundleName}' has no assets assigned.");
+                string[] deps = AssetDatabase.GetAssetBundleDependencies(assetBundleName, recursive: true);
+                if (deps != null)
+                {
+                    foreach (string dep in deps)
+                    {
+                        if (!string.IsNullOrEmpty(dep) && !bundleNames.Contains(dep))
+                            bundleNames.Add(dep);
+                    }
+                }
+            }
+
+            List<AssetBundleBuild> builds = new List<AssetBundleBuild>();
+            foreach (string name in bundleNames)
+            {
+                string[] paths = AssetDatabase.GetAssetPathsFromAssetBundle(name);
+                if (paths == null || paths.Length == 0)
+                {
+                    Debug.LogWarning($"BuildSingleBundle: bundle '{name}' has no assets assigned; skipping.");
+                    continue;
+                }
+                builds.Add(new AssetBundleBuild
+                {
+                    assetBundleName = name,
+                    assetNames = paths,
+                });
+            }
+
+            if (builds.Count == 0)
+            {
+                Debug.LogError($"BuildSingleBundle: no buildable bundles resolved for '{assetBundleName}'.");
                 return;
             }
 
@@ -421,20 +455,11 @@ namespace AssetBundleBrowser
                 }
             }
 
-            var builds = new AssetBundleBuild[]
-            {
-                new AssetBundleBuild
-                {
-                    assetBundleName = assetBundleName,
-                    assetNames = assetPaths,
-                }
-            };
-
             var assetsManager = new AssetsManager();
             BuildTarget target = (BuildTarget)m_UserData.m_BuildTarget;
 
             AssetBundleManifest manifest = BuildPipeline.BuildAssetBundles(
-                m_UserData.m_OutputPath, builds, opt, target);
+                m_UserData.m_OutputPath, builds.ToArray(), opt, target);
 
             if (manifest == null)
             {
@@ -450,7 +475,10 @@ namespace AssetBundleBrowser
 
             AssetDatabase.Refresh(ImportAssetOptions.ForceUpdate);
 
-            Debug.Log($"[AssetBundle Build] Built single bundle '{assetBundleName}' -> {m_UserData.m_OutputPath}");
+            string depsSuffix = includeDependencies && builds.Count > 1
+                ? $" (+ {builds.Count - 1} dependencies)"
+                : string.Empty;
+            Debug.Log($"[AssetBundle Build] Built '{assetBundleName}'{depsSuffix} -> {m_UserData.m_OutputPath}");
         }
 
         private static void DirectoryCopy(string sourceDirName, string destDirName)

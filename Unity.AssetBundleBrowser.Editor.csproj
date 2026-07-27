@@ -68,7 +68,10 @@
     <Compile Include="Assets\Packages\Custom AssetBundles-Browser\Editor\AssetBundleManageTab.cs" />
     <Compile Include="Assets\Packages\Custom AssetBundles-Browser\Editor\InspectTab\InspectSingleBundle.cs" />
     <Compile Include="Assets\Packages\Custom AssetBundles-Browser\Editor\AssetBundleBrowserMain.cs" />
+    <Compile Include="Assets\Packages\Custom AssetBundles-Browser\Editor\AssetBundleAddCategoryWindow.cs" />
     <Compile Include="Assets\Packages\Custom AssetBundles-Browser\Editor\InspectTab\InspectTreeView.cs" />
+    <Compile Include="Assets\Packages\Custom AssetBundles-Browser\Editor\AssetBundleCategoriesModel.cs" />
+    <Compile Include="Assets\Packages\Custom AssetBundles-Browser\Editor\AssetBundleCategoriesPanel.cs" />
     <Compile Include="Assets\Packages\Custom AssetBundles-Browser\Editor\AssetBundleInspectorBuildButton.cs" />
     <Compile Include="Assets\Packages\Custom AssetBundles-Browser\Editor\InspectTab\AssetBundleRecord.cs" />
     <Compile Include="Assets\Packages\Custom AssetBundles-Browser\Editor\AssetBundleCabReplacerTab.cs" />

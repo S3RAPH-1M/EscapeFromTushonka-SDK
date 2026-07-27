@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor.IMGUI.Controls;
 using System.Linq;
 using System;
+using AssetBundleBrowser.Custom;
 
 
 namespace AssetBundleBrowser
@@ -83,7 +84,80 @@ namespace AssetBundleBrowser
         {
             AssetBundleModel.Model.Refresh();
             var root = AssetBundleModel.Model.CreateBundleTreeView();
+            ApplyCategoryFilter(root);
             return root;
+        }
+
+        private void ApplyCategoryFilter(TreeViewItem root)
+        {
+            AssetBundleCategoriesPanel panel = m_Controller?.m_CategoriesPanel;
+            if (panel == null || panel.IsAllSelected) return;
+
+            CategoryData category = CategoryStorage.FindByName(panel.SelectedCategory);
+            if (category == null) return;
+
+            HashSet<string> allowed = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            if (category.BundleNames != null)
+            {
+                foreach (string b in category.BundleNames)
+                {
+                    if (!string.IsNullOrEmpty(b)) allowed.Add(b);
+                }
+            }
+
+            if (panel.ShowDependencies)
+            {
+                List<string> seeds = new List<string>(allowed);
+                foreach (string b in seeds)
+                {
+                    string[] deps = AssetDatabase.GetAssetBundleDependencies(b, true);
+                    if (deps == null) continue;
+                    foreach (string d in deps)
+                    {
+                        if (!string.IsNullOrEmpty(d)) allowed.Add(d);
+                    }
+                }
+            }
+
+            if (root.children != null)
+            {
+                for (int i = root.children.Count - 1; i >= 0; i--)
+                {
+                    if (!KeepAfterFilter(root.children[i], allowed))
+                    {
+                        root.children.RemoveAt(i);
+                    }
+                }
+            }
+
+            if (root.children == null || root.children.Count == 0)
+            {
+                root.children = new List<TreeViewItem>();
+            }
+        }
+
+        private static bool KeepAfterFilter(TreeViewItem item, HashSet<string> allowed)
+        {
+            if (item.children != null)
+            {
+                for (int i = item.children.Count - 1; i >= 0; i--)
+                {
+                    if (!KeepAfterFilter(item.children[i], allowed))
+                    {
+                        item.children.RemoveAt(i);
+                    }
+                }
+            }
+
+            AssetBundleModel.BundleTreeItem bti = item as AssetBundleModel.BundleTreeItem;
+            if (bti != null && bti.bundle != null)
+            {
+                string fullName = bti.bundle.m_Name.fullNativeName;
+                if (!string.IsNullOrEmpty(fullName) && allowed.Contains(fullName))
+                    return true;
+            }
+
+            return item.children != null && item.children.Count > 0;
         }
 
         protected override void SelectionChanged(IList<int> selectedIds)

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using AssetBundleBrowser.Custom;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -85,6 +86,8 @@ namespace AssetBundleBrowser
                 ? bundleName
                 : $"{bundleName}.{variant}";
 
+            DrawCategoryRow(fullBundleName);
+
             GUIContent buttonContent = new GUIContent(
                 $"Build AssetBundle: {fullBundleName}",
                 "Build only this AssetBundle using the AssetBundle Browser Build tab's current settings.");
@@ -115,6 +118,43 @@ namespace AssetBundleBrowser
                     return;
                 }
                 browser.m_BuildTab.BuildSingleBundle(fullBundleName, includeDeps);
+            }
+        }
+
+        private static void DrawCategoryRow(string fullBundleName)
+        {
+            List<CategoryData> categories = CategoryStorage.Data.Categories;
+
+            string[] options = new string[categories.Count + 1];
+            options[0] = "<None>";
+            for (int i = 0; i < categories.Count; i++)
+            {
+                options[i + 1] = categories[i].Name;
+            }
+
+            CategoryData currentCategory = CategoryStorage.FindByBundle(fullBundleName);
+            int currentIndex = 0;
+            if (currentCategory != null)
+            {
+                for (int i = 1; i < options.Length; i++)
+                {
+                    if (string.Equals(options[i], currentCategory.Name, StringComparison.OrdinalIgnoreCase))
+                    {
+                        currentIndex = i;
+                        break;
+                    }
+                }
+            }
+
+            GUIContent label = new GUIContent(
+                "Category",
+                "Assign this AssetBundle to a category. Categories can specify their own build output location.");
+
+            int newIndex = EditorGUILayout.Popup(label, currentIndex, options);
+            if (newIndex != currentIndex)
+            {
+                string picked = newIndex == 0 ? null : options[newIndex];
+                CategoryStorage.AssignBundle(fullBundleName, picked);
             }
         }
     }

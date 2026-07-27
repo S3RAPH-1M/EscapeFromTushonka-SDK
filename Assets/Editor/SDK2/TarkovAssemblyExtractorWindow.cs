@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using dnlib.DotNet;
 using dnlib.DotNet.Writer;
 using UnityEditor;
@@ -15,6 +16,7 @@ namespace TarkovSdk.Editor
         private const string DefaultOutputRelPath = "Assets/Plugins/Tarkov.Assemblies";
         private const string EftDataPathKey = "TarkovSdk.Extractor.EftDataPath";
         private const string OutputPathKey = "TarkovSdk.Extractor.OutputPath";
+        private const string UnpackZipFileName = "unpack_after_setup.zip";
 
         private static readonly string[] RequiredManagedDlls = new string[]
         {
@@ -234,6 +236,8 @@ namespace TarkovSdk.Editor
             }
 
             int rewritten = 0, copied = 0, missing = 0, failed = 0;
+            int unpackNew = 0, unpackOverwritten = 0, unpackFailed = 0;
+            bool unpackAttempted = false;
             List<string> missingFiles = new List<string>();
             List<string> failedFiles = new List<string>();
 
@@ -296,6 +300,12 @@ namespace TarkovSdk.Editor
                         failed++;
                     }
                 }
+
+                EditorUtility.DisplayProgressBar(
+                    "Extracting Tarkov assemblies",
+                    "Unpacking " + UnpackZipFileName,
+                    1f);
+                unpackAttempted = TryUnpackAfterSetupZip(out unpackNew, out unpackOverwritten, out unpackFailed);
             }
             finally
             {
@@ -312,8 +322,13 @@ namespace TarkovSdk.Editor
                 + ", copied: " + copied
                 + ", missing: " + missing
                 + ", failed: " + failed);
+            if (unpackAttempted)
+            {
+                Log("Unpack: " + unpackNew + " new, " + unpackOverwritten + " overwritten"
+                    + (unpackFailed > 0 ? ", " + unpackFailed + " failed" : "") + ".");
+            }
 
-            _lastRunHadFailures = failed > 0 || missing > 0;
+            _lastRunHadFailures = failed > 0 || missing > 0 || unpackFailed > 0;
 
             if (missingFiles.Count > 0)
             {
@@ -390,6 +405,103 @@ namespace TarkovSdk.Editor
             {
                 module.Dispose();
             }
+        }
+
+        private bool TryUnpackAfterSetupZip(out int newFiles, out int overwritten, out int failed)
+        {
+            newFiles = 0;
+            overwritten = 0;
+            failed = 0;
+
+            string zipPath = ResolveScriptSiblingPath(UnpackZipFileName);
+            if (!File.Exists(zipPath))
+            {
+                Log(string.Empty);
+                Log("No " + UnpackZipFileName + " next to script; skipping unpack.");
+                Log("Looked at: " + zipPath);
+                return false;
+            }
+
+            Log(string.Empty);
+            Log("Unpacking " + zipPath + " into Assets/...");
+
+            string destRoot = Application.dataPath;
+            string normalizedRoot = Path.GetFullPath(destRoot)
+                .TrimEnd(Path.DirectorySeparatorChar) + Path.DirectorySeparatorChar;
+
+            try
+            {
+                using (ZipArchive archive = ZipFile.OpenRead(zipPath))
+                {
+                    foreach (ZipArchiveEntry entry in archive.Entries)
+                    {
+                        string rel = entry.FullName.Replace('/', Path.DirectorySeparatorChar);
+                        string outPath = Path.GetFullPath(Path.Combine(destRoot, rel));
+
+                        if (!outPath.StartsWith(normalizedRoot, StringComparison.OrdinalIgnoreCase))
+                        {
+                            Log("UNPACK SKIP (outside Assets): " + entry.FullName);
+                            failed++;
+                            continue;
+                        }
+
+                        try
+                        {
+                            if (string.IsNullOrEmpty(entry.Name))
+                            {
+                                Directory.CreateDirectory(outPath);
+                                continue;
+                            }
+
+                            string parentDir = Path.GetDirectoryName(outPath);
+                            if (!string.IsNullOrEmpty(parentDir))
+                            {
+                                Directory.CreateDirectory(parentDir);
+                            }
+
+                            bool existed = File.Exists(outPath);
+                            entry.ExtractToFile(outPath, overwrite: true);
+                            if (existed)
+                            {
+                                overwritten++;
+                                Log("UNPACK OVERWRITE: " + entry.FullName);
+                            }
+                            else
+                            {
+                                newFiles++;
+                                Log("UNPACK NEW:       " + entry.FullName);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Log("UNPACK FAILED: " + entry.FullName + "  -  " + ex.Message);
+                            failed++;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log("Unpack failed to open " + UnpackZipFileName + ": " + ex.Message);
+                failed++;
+            }
+
+            return true;
+        }
+
+        private string ResolveScriptSiblingPath(string fileName)
+        {
+            MonoScript ms = MonoScript.FromScriptableObject(this);
+            string scriptAssetPath = ms != null ? AssetDatabase.GetAssetPath(ms) : null;
+
+            if (string.IsNullOrEmpty(scriptAssetPath))
+            {
+                return Path.GetFullPath(Path.Combine(Application.dataPath, "Editor", "SDK2", fileName));
+            }
+
+            string scriptDirRelative = Path.GetDirectoryName(scriptAssetPath);
+            string projectRoot = Path.GetDirectoryName(Application.dataPath);
+            return Path.GetFullPath(Path.Combine(projectRoot, scriptDirRelative, fileName));
         }
 
         private static string ResolveOutputAbsolute(string maybeRel)

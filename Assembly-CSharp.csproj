@@ -61,23 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Tools\Unity Bundle Loader\AssetBundleLoader.cs" />
-    <Compile Include="Assets\Scripts\UnityStandardAssets\ImageEffects\Tonemapping.cs" />
-    <Compile Include="Assets\Scripts\Prism\Utils\AOBlurType.cs" />
-    <Compile Include="Assets\Scripts\Prism\Utils\NoiseType.cs" />
-    <Compile Include="Assets\Scripts\Prism\Utils\SampleCount.cs" />
-    <Compile Include="Assets\Scripts\UnityStandardAssets\ImageEffects\PostEffectBase.cs" />
-    <Compile Include="Assets\Scripts\Prism\Utils\DoFSamples.cs" />
-    <Compile Include="Assets\Scripts\Prism\Utils\BloomType.cs" />
-    <Compile Include="Assets\Scripts\UnityStandardAssets\ImageEffects\Fisheye.cs" />
-    <Compile Include="Assets\Scripts\Prism\Utils\TonemapType.cs" />
-    <Compile Include="Assets\Scripts\Custom\Item Preview\ItemPreview.cs" />
-    <Compile Include="Assets\Scripts\Prism\Utils\PrismPresetType.cs" />
-    <Compile Include="Assets\Scripts\DefaultNamespace\LayerWeightStateController.cs" />
-    <Compile Include="Assets\Scripts\Prism\Utils\AberrationType.cs" />
-    <Compile Include="Assets\Scripts\Systems\Effects\Effects.cs" />
-    <Compile Include="Assets\Scripts\Prism\Utils\PrismPreset.cs" />
-    <Compile Include="Assets\Scripts\UnityStandardAssets\ImageEffects\BloomOptimized.cs" />
-    <Compile Include="Assets\Scripts\Systems\Effects\EffectsCommutator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shaders\p0_Cutout_Bumped Diffuse Emissive.shader" />

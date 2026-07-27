@@ -60,21 +60,9 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.43f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Editor\Groovey\GameReadyCharacterArmsCreator.cs" />
-    <Compile Include="Assets\Editor\Groovey\AutoTransformLinks.cs" />
-    <Compile Include="Assets\Scripts\Custom\Item Preview\Editor\ItemPreviewWindow.cs" />
-    <Compile Include="Assets\Editor\Groovey\GrooveyGUIToolbox.cs" />
     <Compile Include="Assets\Editor\SDK2\TarkovAssemblyExtractorWindow.cs" />
-    <Compile Include="Assets\Editor\Groovey\CustomRigLayoutEditor.cs" />
-    <Compile Include="Assets\Editor\Groovey\GameReadyDressObjectCreator.cs" />
-    <Compile Include="Assets\Editor\Groovey\TagbankVoiceCreator.cs" />
-    <Compile Include="Assets\Editor\Groovey\GameReadySkinnedObjectCreator.cs" />
-    <Compile Include="Assets\Editor\Choccy\StaticDataEditor.cs" />
     <Compile Include="Assets\Editor\AssetRipperPatches\AvoidSavingYamlShaders.cs" />
-    <Compile Include="Assets\Editor\DrakiaXYZ\EFTCleaner.cs" />
-    <Compile Include="Assets\Editor\Groovey\GameReadyHeadClothesCreator.cs" />
     <Compile Include="Assets\Editor\AssetRipperPatches\YamlShaderPostprocessor.cs" />
-    <Compile Include="Assets\Editor\Groovey\GameReadyLootObjectCreator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Editor\SDK2\dnlib.dll" />

@@ -379,6 +379,80 @@ namespace AssetBundleBrowser
                 DirectoryCopy(m_UserData.m_OutputPath, m_streamingPath);
         }
 
+        internal void BuildSingleBundle(string assetBundleName)
+        {
+            if (string.IsNullOrEmpty(assetBundleName))
+            {
+                Debug.LogError("BuildSingleBundle: bundle name is empty.");
+                return;
+            }
+
+            string[] assetPaths = AssetDatabase.GetAssetPathsFromAssetBundle(assetBundleName);
+            if (assetPaths == null || assetPaths.Length == 0)
+            {
+                Debug.LogError($"BuildSingleBundle: AssetBundle '{assetBundleName}' has no assets assigned.");
+                return;
+            }
+
+            if (Model.DataSource.CanSpecifyBuildOutputDirectory)
+            {
+                if (string.IsNullOrEmpty(m_UserData.m_OutputPath))
+                {
+                    Debug.LogError("BuildSingleBundle: Output path is not set. Open the AssetBundle Browser Build tab and set an Output Path first.");
+                    return;
+                }
+                if (!Directory.Exists(m_UserData.m_OutputPath))
+                {
+                    Directory.CreateDirectory(m_UserData.m_OutputPath);
+                }
+            }
+
+            var opt = BuildAssetBundleOptions.None;
+            if (Model.DataSource.CanSpecifyBuildOptions)
+            {
+                if (m_UserData.m_Compression == CompressOptions.Uncompressed)
+                    opt |= BuildAssetBundleOptions.UncompressedAssetBundle;
+                else
+                    opt |= BuildAssetBundleOptions.ChunkBasedCompression;
+                foreach (ToggleData tog in m_ToggleData)
+                {
+                    if (tog.state)
+                        opt |= tog.option;
+                }
+            }
+
+            var builds = new AssetBundleBuild[]
+            {
+                new AssetBundleBuild
+                {
+                    assetBundleName = assetBundleName,
+                    assetNames = assetPaths,
+                }
+            };
+
+            var assetsManager = new AssetsManager();
+            BuildTarget target = (BuildTarget)m_UserData.m_BuildTarget;
+
+            AssetBundleManifest manifest = BuildPipeline.BuildAssetBundles(
+                m_UserData.m_OutputPath, builds, opt, target);
+
+            if (manifest == null)
+            {
+                Debug.LogError($"BuildSingleBundle: Unity build failed for '{assetBundleName}'.");
+                return;
+            }
+
+            foreach (string builtBundleName in manifest.GetAllAssetBundles())
+            {
+                AssetBundleBrowserMain.instance.m_ReplacerTab.ReplacePathIDs(
+                    assetsManager, builtBundleName, m_UserData.m_OutputPath, opt);
+            }
+
+            AssetDatabase.Refresh(ImportAssetOptions.ForceUpdate);
+
+            Debug.Log($"[AssetBundle Build] Built single bundle '{assetBundleName}' -> {m_UserData.m_OutputPath}");
+        }
+
         private static void DirectoryCopy(string sourceDirName, string destDirName)
         {
             // If the destination directory doesn't exist, create it.

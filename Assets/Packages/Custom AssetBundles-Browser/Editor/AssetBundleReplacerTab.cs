@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using AssetsTools.NET;
 using AssetsTools.NET.Extra;
 using Newtonsoft.Json;
@@ -298,7 +299,10 @@ namespace AssetBundleBrowser.Custom
                 int cabChanges = cabHasMappings ? cabTab.ReplaceCabIdsInBuffer(uncompressedBytes) : 0;
                 Mark($"cab-scan({cabChanges}changed)");
 
-                if (pathIdChanges + cabChanges == 0)
+                int asmChanges = ReplaceAssemblyNamesInBuffer(uncompressedBytes);
+                Mark($"asm-scan({asmChanges}changed)");
+
+                if (pathIdChanges + cabChanges + asmChanges == 0)
                 {
                     total.Stop();
                     if (AssetBundleBrowserMain.VerboseLogs)
@@ -333,7 +337,7 @@ namespace AssetBundleBrowser.Custom
 
                 total.Stop();
                 if (AssetBundleBrowserMain.VerboseLogs)
-                    Debug.Log($"[{bundleLabel}] REWROTE | pathIDs={pathIdChanges} CABs={cabChanges} pack={compression} | in={FormatSize(inputSize)} out={FormatSize(outputSize)} | total={total.ElapsedMilliseconds}ms | {string.Join(" ", stepLog)}");
+                    Debug.Log($"[{bundleLabel}] REWROTE | pathIDs={pathIdChanges} CABs={cabChanges} asmRefs={asmChanges} pack={compression} | in={FormatSize(inputSize)} out={FormatSize(outputSize)} | total={total.ElapsedMilliseconds}ms | {string.Join(" ", stepLog)}");
             }
             catch (Exception e)
             {
@@ -474,6 +478,42 @@ namespace AssetBundleBrowser.Custom
             if ((options & BuildAssetBundleOptions.UncompressedAssetBundle) != 0)
                 return AssetBundleCompressionType.None;
             return AssetBundleCompressionType.LZ4;
+        }
+
+        private static readonly (string From, string To)[] _assemblyNameReplacements = new[]
+        {
+            ("Tarkov.Assembly.dll", "Assembly-CSharp.dll"),
+            ("Tarkov.Assembly-firstpass.dll", "Assembly-CSharp-firstpass.dll"),
+        };
+
+        private static int ReplaceAssemblyNamesInBuffer(byte[] bytes)
+        {
+            int totalReplacements = 0;
+            foreach (var pair in _assemblyNameReplacements)
+            {
+                byte[] from = Encoding.UTF8.GetBytes(pair.From);
+                byte[] to = Encoding.UTF8.GetBytes(pair.To);
+                if (from.Length != to.Length)
+                {
+                    Debug.LogError($"Assembly name replacement length mismatch: '{pair.From}' ({from.Length}) -> '{pair.To}' ({to.Length}). Skipping this pair; byte-level replacement requires equal lengths.");
+                    continue;
+                }
+                if (bytes.Length < from.Length) continue;
+
+                int searchStart = 0;
+                ReadOnlySpan<byte> fromSpan = from.AsSpan();
+                while (searchStart <= bytes.Length - from.Length)
+                {
+                    int found = bytes.AsSpan(searchStart).IndexOf(fromSpan);
+                    if (found < 0) break;
+
+                    int matchAt = searchStart + found;
+                    Array.Copy(to, 0, bytes, matchAt, to.Length);
+                    totalReplacements++;
+                    searchStart = matchAt + from.Length;
+                }
+            }
+            return totalReplacements;
         }
     }
 

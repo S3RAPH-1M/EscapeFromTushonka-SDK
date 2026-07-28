@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{B3673907-7EA6-9FDA-FF83-A6E2F9126953}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.AssetBundleBrowser.Editor", "Unity.AssetBundleBrowser.Editor.csproj", "{49F2500E-9CDA-F8AF-B74B-010FE976A9F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{8A67780F-17EC-0AC2-33A3-F79B6055AD0B}"
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B3673907-7EA6-9FDA-FF83-A6E2F9126953}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B3673907-7EA6-9FDA-FF83-A6E2F9126953}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B3673907-7EA6-9FDA-FF83-A6E2F9126953}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B3673907-7EA6-9FDA-FF83-A6E2F9126953}.Release|Any CPU.Build.0 = Release|Any CPU
 		{49F2500E-9CDA-F8AF-B74B-010FE976A9F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{49F2500E-9CDA-F8AF-B74B-010FE976A9F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49F2500E-9CDA-F8AF-B74B-010FE976A9F2}.Release|Any CPU.ActiveCfg = Release|Any CPU

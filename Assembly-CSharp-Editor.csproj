@@ -73,6 +73,7 @@
     <Compile Include="Assets\Editor\DrakiaXYZ\EFTCleaner.cs" />
     <Compile Include="Assets\Editor\Groovey\GameReadyHeadClothesCreator.cs" />
     <Compile Include="Assets\Editor\AssetRipperPatches\YamlShaderPostprocessor.cs" />
+    <Compile Include="Assets\Editor\SDK2\Inspectors\AssetBundleLoaderWindow.cs" />
     <Compile Include="Assets\Editor\Groovey\GameReadyLootObjectCreator.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1409,10 +1410,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{B3673907-7EA6-9FDA-FF83-A6E2F9126953}</Project>
-      <Name>Assembly-CSharp</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.AssetBundleBrowser.Editor.csproj">
       <Project>{49F2500E-9CDA-F8AF-B74B-010FE976A9F2}</Project>
       <Name>Unity.AssetBundleBrowser.Editor</Name>

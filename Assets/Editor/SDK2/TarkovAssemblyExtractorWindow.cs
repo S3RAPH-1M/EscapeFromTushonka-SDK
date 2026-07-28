@@ -68,6 +68,7 @@ namespace TarkovSdk.Editor
             "Unity.Formats.Fbx.Runtime.dll",
             "Unity.MemoryProfiler.dll",
             "Unity.PlayableGraphVisualizer.dll",
+            "Unity.Postprocessing.Runtime.dll",
             "Unity.ProBuilder.Csg.dll",
             "Unity.ProBuilder.dll",
             "Unity.ProBuilder.KdTree.dll",

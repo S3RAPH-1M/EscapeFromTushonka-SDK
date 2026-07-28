@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using AssetsTools.NET;
+using AssetsTools.NET.Extra;
+using Newtonsoft.Json;
 using UnityEditor;
 using UnityEngine;
 
 public class AssetBundleLoaderWindow : EditorWindow
 {
     private const string k_FolderPrefKey = "TarkovSDK.BundleLoader.FolderPath";
-    private const string k_SmapPrefKey = "TarkovSDK.BundleLoader.UseSmapDecal";
-    private const string k_SmapShader = "p0/Reflective/Bumped Specular SMap";
-    private const string k_SmapDecalShader = "p0/Reflective/Bumped Specular SMap_Decal";
+    private const string k_PathDataFileRelativePath = "Packages/Custom AssetBundles-Browser/path_data.json";
+    private const string k_ShadersCategory = "shaders";
 
     private static readonly (string From, string To)[] s_AssemblyNameSwaps =
     {
@@ -20,15 +21,12 @@ public class AssetBundleLoaderWindow : EditorWindow
     };
 
     private string _bundleFolderPath;
-    private bool _useSmapDecal;
-    private Vector2 _logScroll;
-    private readonly List<string> _log = new List<string>();
 
     [MenuItem("EFT-SDK/Inspectors/AssetBundle Loader")]
     public static void ShowWindow()
     {
         AssetBundleLoaderWindow win = GetWindow<AssetBundleLoaderWindow>("AssetBundle Loader");
-        win.minSize = new Vector2(560f, 420f);
+        win.minSize = new Vector2(460f, 140f);
         win.Show();
     }
 
@@ -37,20 +35,11 @@ public class AssetBundleLoaderWindow : EditorWindow
         string defaultFolder = Path.Combine(Application.dataPath, "Tools/Unity Bundle Loader/Loaded Bundles")
             .Replace('/', Path.DirectorySeparatorChar);
         _bundleFolderPath = EditorPrefs.GetString(k_FolderPrefKey, defaultFolder);
-        _useSmapDecal = EditorPrefs.GetBool(k_SmapPrefKey, false);
     }
 
     private void OnGUI()
     {
         EditorGUILayout.Space(6f);
-        EditorGUILayout.LabelField("AssetBundle Loader", EditorStyles.boldLabel);
-        EditorGUILayout.HelpBox(
-            "Bundles are hot-modified before loading: MonoScript m_AssemblyName is byte-swapped from " +
-            "'Assembly-CSharp' to 'Tarkov.Assembly' so game scripts resolve to the SDK's Tarkov.Assemblies plugins. " +
-            "Original bundle files on disk are untouched.",
-            MessageType.Info);
-
-        EditorGUILayout.Space(4f);
         EditorGUILayout.LabelField("Bundle folder", EditorStyles.boldLabel);
         using (new EditorGUILayout.HorizontalScope())
         {
@@ -73,79 +62,36 @@ public class AssetBundleLoaderWindow : EditorWindow
             }
         }
 
-        EditorGUILayout.Space(4f);
-        bool newSmap = EditorGUILayout.ToggleLeft(
-            new GUIContent("Use SMap Decal shader variant",
-                "When on, assigns 'p0/Reflective/Bumped Specular SMap_Decal' instead of the base SMap shader."),
-            _useSmapDecal);
-        if (newSmap != _useSmapDecal)
-        {
-            _useSmapDecal = newSmap;
-            EditorPrefs.SetBool(k_SmapPrefKey, _useSmapDecal);
-        }
-
         EditorGUILayout.Space(8f);
         using (new EditorGUI.DisabledScope(!Directory.Exists(_bundleFolderPath)))
         {
-            if (GUILayout.Button(new GUIContent("Load All Bundles",
-                "Read every .bundle file in the folder, hot-modify assembly refs, instantiate GameObjects in the active scene."),
-                GUILayout.Height(32f)))
+            if (GUILayout.Button("Load All Bundles", GUILayout.Height(32f)))
             {
                 LoadAllBundles();
             }
         }
 
-        if (GUILayout.Button(new GUIContent("Load Single Bundle...",
-            "Pick a specific .bundle file and load it."), GUILayout.Height(22f)))
+        if (GUILayout.Button("Load Single Bundle...", GUILayout.Height(22f)))
         {
             string startFolder = Directory.Exists(_bundleFolderPath) ? _bundleFolderPath : Application.dataPath;
             string picked = EditorUtility.OpenFilePanel("Pick a bundle", startFolder, "bundle");
             if (!string.IsNullOrEmpty(picked))
             {
-                _log.Clear();
                 LoadSingleBundle(picked.Replace('/', Path.DirectorySeparatorChar));
-            }
-        }
-
-        EditorGUILayout.Space(8f);
-        using (new EditorGUILayout.HorizontalScope())
-        {
-            EditorGUILayout.LabelField("Log", EditorStyles.boldLabel);
-            GUILayout.FlexibleSpace();
-            if (_log.Count > 0 && GUILayout.Button("Clear", GUILayout.Width(60f)))
-            {
-                _log.Clear();
-            }
-        }
-        using (EditorGUILayout.ScrollViewScope scroll = new EditorGUILayout.ScrollViewScope(_logScroll, GUILayout.ExpandHeight(true)))
-        {
-            _logScroll = scroll.scrollPosition;
-            foreach (string line in _log)
-            {
-                EditorGUILayout.LabelField(line, EditorStyles.wordWrappedMiniLabel);
             }
         }
     }
 
     private void LoadAllBundles()
     {
-        _log.Clear();
-
         if (!Directory.Exists(_bundleFolderPath))
         {
-            Log($"Bundle folder not found: {_bundleFolderPath}");
+            Debug.LogError($"[BundleLoader] Bundle folder not found: {_bundleFolderPath}");
             return;
         }
 
         string[] paths = Directory.GetFiles(_bundleFolderPath, "*.bundle");
-        if (paths.Length == 0)
-        {
-            Log($"No .bundle files found in {_bundleFolderPath}");
-            return;
-        }
-
-        Log($"Loading {paths.Length} bundle(s)...");
-        int loaded = 0, failed = 0;
+        if (paths.Length == 0) return;
 
         try
         {
@@ -156,20 +102,16 @@ public class AssetBundleLoaderWindow : EditorWindow
                     $"{Path.GetFileName(paths[i])}  ({i + 1}/{paths.Length})",
                     (float)i / paths.Length))
                 {
-                    Log("Cancelled by user.");
                     break;
                 }
 
-                if (LoadSingleBundle(paths[i])) loaded++;
-                else failed++;
+                LoadSingleBundle(paths[i]);
             }
         }
         finally
         {
             EditorUtility.ClearProgressBar();
         }
-
-        Log($"Done. Loaded: {loaded}, failed: {failed}");
     }
 
     private bool LoadSingleBundle(string path)
@@ -179,21 +121,25 @@ public class AssetBundleLoaderWindow : EditorWindow
 
         try
         {
-            byte[] modifiedBytes = HotModifyBundle(path, out int asmChanges);
-            if (modifiedBytes == null || modifiedBytes.Length == 0)
+            byte[] unpackedBytes = UnpackAndSwapAsm(path, out int asmChanges);
+            if (unpackedBytes == null || unpackedBytes.Length == 0)
             {
-                Log($"[{label}] failed to prepare modified bytes");
+                Debug.LogError($"[BundleLoader] [{label}] failed to prepare bytes");
                 return false;
             }
 
-            unityBundle = AssetBundle.LoadFromMemory(modifiedBytes);
+            Dictionary<string, long> matToShaderPathId = ExtractMaterialShaderPathIds(path);
+            Dictionary<long, string> eftToShaderName = LoadEftPathIdToShaderNameMap();
+            Dictionary<string, string> matToShaderName = BuildMaterialToShaderName(matToShaderPathId, eftToShaderName);
+
+            unityBundle = AssetBundle.LoadFromMemory(unpackedBytes);
             if (unityBundle == null)
             {
-                Log($"[{label}] AssetBundle.LoadFromMemory returned null");
+                Debug.LogError($"[BundleLoader] [{label}] AssetBundle.LoadFromMemory returned null");
                 return false;
             }
 
-            int instantiated = 0;
+            int assigned = 0, missingShader = 0;
             UnityEngine.Object[] assets = unityBundle.LoadAllAssets();
             foreach (UnityEngine.Object asset in assets)
             {
@@ -202,17 +148,14 @@ public class AssetBundleLoaderWindow : EditorWindow
 
                 GameObject instance = Instantiate(go);
                 instance.name = go.name;
-                ReassignShaders(instance);
                 Undo.RegisterCreatedObjectUndo(instance, $"Load bundle {label}");
-                instantiated++;
+                AssignShaders(instance, matToShaderName, ref assigned, ref missingShader);
             }
 
-            Log($"[{label}] loaded (asmRefs swapped: {asmChanges}, GameObjects instantiated: {instantiated})");
             return true;
         }
         catch (Exception ex)
         {
-            Log($"[{label}] EXCEPTION: {ex.Message}");
             Debug.LogException(ex);
             return false;
         }
@@ -222,7 +165,7 @@ public class AssetBundleLoaderWindow : EditorWindow
         }
     }
 
-    private static byte[] HotModifyBundle(string path, out int asmChanges)
+    private static byte[] UnpackAndSwapAsm(string path, out int asmChanges)
     {
         asmChanges = 0;
 
@@ -250,6 +193,146 @@ public class AssetBundleLoaderWindow : EditorWindow
         return unpackedBytes;
     }
 
+    private static Dictionary<string, long> ExtractMaterialShaderPathIds(string path)
+    {
+        Dictionary<string, long> map = new Dictionary<string, long>();
+        try
+        {
+            AssetsManager am = new AssetsManager();
+            try
+            {
+                BundleFileInstance bundleInstance = am.LoadBundleFile(path);
+                AssetsFileInstance assetsFile = am.LoadAssetsFileFromBundle(bundleInstance, 0);
+
+                foreach (AssetFileInfo info in assetsFile.file.AssetInfos)
+                {
+                    AssetTypeValueField baseField;
+                    try
+                    {
+                        baseField = am.GetBaseField(assetsFile, info);
+                    }
+                    catch
+                    {
+                        continue;
+                    }
+
+                    if (baseField == null) continue;
+                    if (!string.Equals(baseField.TypeName, "Material", StringComparison.Ordinal)) continue;
+
+                    string matName = baseField.Get("m_Name").AsString;
+                    if (string.IsNullOrEmpty(matName)) continue;
+
+                    AssetTypeValueField shaderField = baseField.Get("m_Shader");
+                    if (shaderField == null) continue;
+
+                    AssetTypeValueField pathIdField = shaderField.Get("m_PathID");
+                    if (pathIdField == null) continue;
+
+                    long shaderPathId = pathIdField.AsLong;
+                    if (shaderPathId == 0L) continue;
+
+                    map[matName] = shaderPathId;
+                }
+            }
+            finally
+            {
+                am.UnloadAll();
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.LogException(ex);
+        }
+        return map;
+    }
+
+    private static Dictionary<long, string> LoadEftPathIdToShaderNameMap()
+    {
+        string fullPath = Path.Combine(Application.dataPath, k_PathDataFileRelativePath)
+            .Replace('/', Path.DirectorySeparatorChar);
+        if (!File.Exists(fullPath)) return new Dictionary<long, string>();
+
+        try
+        {
+            string json = File.ReadAllText(fullPath);
+            PathIdMapJson data = JsonConvert.DeserializeObject<PathIdMapJson>(json);
+            if (data == null || data.eft == null || data.descriptionList == null)
+                return new Dictionary<long, string>();
+
+            Dictionary<long, string> map = new Dictionary<long, string>();
+            int count = Math.Min(data.eft.Count, data.descriptionList.Count);
+            for (int i = 0; i < count; i++)
+            {
+                string desc = data.descriptionList[i];
+                if (string.IsNullOrEmpty(desc)) continue;
+
+                int pipeIdx = desc.IndexOf('|');
+                if (pipeIdx < 0) continue;
+
+                string category = desc.Substring(0, pipeIdx).Trim();
+                if (!string.Equals(category, k_ShadersCategory, StringComparison.OrdinalIgnoreCase)) continue;
+
+                string shaderName = desc.Substring(pipeIdx + 1).Trim();
+                if (string.IsNullOrEmpty(shaderName)) continue;
+
+                long eft = data.eft[i];
+                if (eft == 0L) continue;
+
+                if (!map.ContainsKey(eft)) map[eft] = shaderName;
+            }
+            return map;
+        }
+        catch (Exception ex)
+        {
+            Debug.LogException(ex);
+            return new Dictionary<long, string>();
+        }
+    }
+
+    private static Dictionary<string, string> BuildMaterialToShaderName(
+        Dictionary<string, long> matToShaderPathId,
+        Dictionary<long, string> eftPathIdToShaderName)
+    {
+        Dictionary<string, string> result = new Dictionary<string, string>();
+        foreach (var kv in matToShaderPathId)
+        {
+            if (eftPathIdToShaderName.TryGetValue(kv.Value, out string shaderName))
+            {
+                result[kv.Key] = shaderName;
+            }
+        }
+        return result;
+    }
+
+    private static void AssignShaders(GameObject instance, Dictionary<string, string> matToShaderName, ref int assigned, ref int missingShader)
+    {
+        if (matToShaderName == null || matToShaderName.Count == 0) return;
+
+        Renderer[] renderers = instance.GetComponentsInChildren<Renderer>(true);
+        foreach (Renderer r in renderers)
+        {
+            Material[] mats = r.sharedMaterials;
+            for (int i = 0; i < mats.Length; i++)
+            {
+                Material m = mats[i];
+                if (m == null) continue;
+
+                if (!matToShaderName.TryGetValue(m.name, out string shaderName)) continue;
+
+                Shader shader = Shader.Find(shaderName);
+                if (shader != null)
+                {
+                    m.shader = shader;
+                    assigned++;
+                }
+                else
+                {
+                    missingShader++;
+                }
+            }
+        }
+    }
+
     private static int ReplacePattern(byte[] bytes, string fromStr, string toStr)
     {
         byte[] from = Encoding.UTF8.GetBytes(fromStr);
@@ -273,34 +356,11 @@ public class AssetBundleLoaderWindow : EditorWindow
         return matches;
     }
 
-    private void ReassignShaders(GameObject instance)
+    [Serializable]
+    private class PathIdMapJson
     {
-        string shaderName = _useSmapDecal ? k_SmapDecalShader : k_SmapShader;
-        Shader shader = Shader.Find(shaderName);
-        if (shader == null)
-        {
-            Log($"Shader not found: '{shaderName}'. Materials left with their original shaders.");
-            return;
-        }
-
-        Renderer[] renderers = instance.GetComponentsInChildren<Renderer>(includeInactive: true);
-        foreach (Renderer r in renderers)
-        {
-            if (!(r is MeshRenderer) && !(r is SkinnedMeshRenderer)) continue;
-
-            Material[] mats = r.sharedMaterials;
-            for (int i = 0; i < mats.Length; i++)
-            {
-                if (mats[i] != null) mats[i].shader = shader;
-            }
-        }
-    }
-
-    private void Log(string line)
-    {
-        _log.Add(line);
-        Debug.Log($"[BundleLoader] {line}");
-        _logScroll = new Vector2(0f, float.MaxValue);
-        Repaint();
+        public List<long> sdk;
+        public List<long> eft;
+        public List<string> descriptionList;
     }
 }

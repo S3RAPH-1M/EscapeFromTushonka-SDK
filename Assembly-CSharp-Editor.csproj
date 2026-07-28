@@ -60,9 +60,13 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.43f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Editor\SDK2\DKC\FileID\AssemblyFileIDDumper.cs" />
     <Compile Include="Assets\Editor\Groovey\GameReadyCharacterArmsCreator.cs" />
     <Compile Include="Assets\Editor\Groovey\AutoTransformLinks.cs" />
+    <Compile Include="Assets\Editor\SDK2\DKC\GuidReplacerWindow.cs" />
+    <Compile Include="Assets\Editor\SDK2\DKC\FileID\FileIDUtil.cs" />
     <Compile Include="Assets\Editor\Groovey\GrooveyGUIToolbox.cs" />
+    <Compile Include="Assets\Editor\SDK2\DKC\DLLScriptContainerCreator.cs" />
     <Compile Include="Assets\Editor\SDK2\TarkovAssemblyExtractorWindow.cs" />
     <Compile Include="Assets\Editor\Groovey\CustomRigLayoutEditor.cs" />
     <Compile Include="Assets\Editor\Groovey\GameReadyDressObjectCreator.cs" />
@@ -73,6 +77,7 @@
     <Compile Include="Assets\Editor\DrakiaXYZ\EFTCleaner.cs" />
     <Compile Include="Assets\Editor\Groovey\GameReadyHeadClothesCreator.cs" />
     <Compile Include="Assets\Editor\AssetRipperPatches\YamlShaderPostprocessor.cs" />
+    <Compile Include="Assets\Editor\SDK2\DKC\FileID\MD4.cs" />
     <Compile Include="Assets\Editor\SDK2\Inspectors\AssetBundleLoaderWindow.cs" />
     <Compile Include="Assets\Editor\Groovey\GameReadyLootObjectCreator.cs" />
   </ItemGroup>

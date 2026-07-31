@@ -1,7 +1,7 @@
 
-# Escape From Tarkov SDK
+# Escape From Tushonka SDK
 
-This project is meant for the modders who want to work on custom assets for Escape From Tarkov.
+This project is meant for the modders who want to work on custom assets for Escape From Tushonka.
 
 
 
@@ -16,11 +16,11 @@ This project is meant for the modders who want to work on custom assets for Esca
 
 ## Installation
 
-Install EscapeFromTarkov-SDK with git
+Install EscapeFromTushonka-SDK with git
 - Step 1: 
 ```bash
-  git clone "https://github.com/S3RAPH-1M/EscapeFromTarkov-SDK.git"
-  cd EscapeFromTarkov-SDK
+  git clone "https://github.com/S3RAPH-1M/EscapeFromTushonka-SDK.git"
+  cd EscapeFromTushonka-SDK
 ```
 - Step 2: Download & Install Unity Hub. 
 - Step 3: Download & Install Unity 2022.3.43 (Click on the unity icon at the bottom)
@@ -53,7 +53,7 @@ Install EscapeFromTarkov-SDK with git
 
 ## Support
 
-If you need support. You can join my discord & contact me via DM's or drop a message with a ping inside of the SDK channel under the tarkov category. Click the little icon below to join 🫡
+If you need support. You can join my discord & contact me via DM's or drop a message with a ping inside of the SDK channel under the Tushonka category. Click the little icon below to join 🫡
 
 
 <p align="left">
